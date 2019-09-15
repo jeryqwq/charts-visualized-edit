@@ -1,12 +1,11 @@
 <template>
     <div class='item-wrap'>
-        <vue-drag-resize :isActive="options.isActive" :x="options.left" :y="options.top"
-         :w="options.width" :h="options.height" v-on:resizing="resize" 
+        <vue-drag-resize :isActive="$attrs.options.isActive" :x="options.left" 
+        :y="options.top" :w="options.width" :h="options.height" 
+        v-on:resizing="resize" 
             v-on:dragging="resize" :minw='200' :minh="200" >
-            <div class="action-btn" v-show="options.isActive">
-                <span class="close">X
-                </span>
-                <span class="sure">V
+            <div class="action-btn" v-show="$attrs.options.isActive">
+                <span class="close" @click="remove()">X
                 </span>
             </div>
             <Container :options="options" @setContainer="setContainer" 
@@ -31,7 +30,6 @@
                     height: undefined,
                     top: 40,
                     left:80,
-                    isActive:false,
                     echartOption:undefined
                 }
             }
@@ -53,9 +51,9 @@
                 this.options.width = width;
                 this.options.height = height;
             },
-            // activated(typeOptions,index){
-            // this.$bus.$emit('setOptionItem',this.typeOptions,this.index)
-            // }
+            remove(){
+                this.$emit('remove',this.$attrs.idx);
+            }
         },
     }
 </script>
@@ -67,6 +65,8 @@
         display:inline-block;
         position:absolute;
         right:0;
+        z-index:5;
+        cursor: pointer;
     }
     span.close{
         display: inline-block;

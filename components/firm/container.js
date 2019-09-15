@@ -8,12 +8,11 @@ export default{
 
     watch: {
         deep:true,
-        "options.width"(val){
+        "$attrs.options"(val){
+            this.$emit('setContainer',{width:val.width,height:val.height,idx:this.$attrs.idx});
             this.$refs.echart.resize();
         },
-        "options.height"(val){
-            this.$refs.echart.resize();
-        },
+     
     },
     render(h) {
         let {type}=this.$attrs.options;

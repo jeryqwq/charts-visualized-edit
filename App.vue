@@ -9,7 +9,8 @@
                 </transition-group>
             </vuedraggable>
         </div>
-        <DragItem v-for="(item,idx) in options" :key="idx" v-bind="{options:item,idx}" @setOption="setOption" />
+        <DragItem v-for="(item,idx) in options" :key="idx" v-bind="{options:item,idx}"
+         @setOption="setOption" @remove="remove" />
         <div class="rg-option">
             <ConfigUi :curOption="curOption" :index="index"/>
         </div>
@@ -32,6 +33,7 @@
             this.options[idx].echartOption=option;
             this.curOption=this.options[idx];
             this.index=idx;
+            this.setActive(idx);
         })
         },
         data() {
@@ -61,6 +63,11 @@
             setOption(item, idx) {
                 this.options[idx] = item;
             },
+            setActive(idx){
+                this.options.forEach((item,index) => {
+                    index===idx?item.isActive=true:item.isActive=false;
+                });
+            },
             onEnd: function (evt) {
                 if (evt.originalEvent.clientX >= 140) {
                     this.options.push({
@@ -71,7 +78,10 @@
                         isActive:true,
                     });
                 }
-            }
+            },
+            remove(idx){
+                this.options.splice(idx,1);
+            },
         },
     }
 </script>

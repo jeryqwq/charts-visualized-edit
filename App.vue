@@ -1,49 +1,128 @@
 <template>
-    <div >
-         <vue-drag-resize 
-         :isActive="true" :w="options.width" :h="options.height" v-on:resizing="resize" v-on:dragging="resize">
-            <Container :options="options" @setContainer="setContainer"/>
-         </vue-drag-resize>
+    <div class="body-wrap">
+        <div class="left-mini">
+            <vuedraggable class="wrapper" v-model="miniTools" ghost-class="ghost" @end="onEnd">
+                <transition-group>
+                    <div v-for="(item,idx) in miniTools" :key="idx" class="item">
+                        <p>{{item.name}}</p>
+                    </div>
+                </transition-group>
+            </vuedraggable>
+        </div>
+        <DragItem v-for="(item,idx) in options" :key="idx" v-bind="{options:item,idx}" @setOption="setOption" />
+        <div class="rg-option">
+            <ConfigUi :curOption="curOption" :index="index"/>
+        </div>
     </div>
 </template>
 
 <script>
-  import VueDragResize from 'vue-drag-resize';
-  import Container from './container.js';
+    import DragItem from './components/firm/drag-item.vue';
+    import config from './setting/config';
+    import vuedraggable from 'vuedraggable';
+    import ConfigUi from './components/firm/config-ui.js';
     export default {
-        components:{
-            VueDragResize,
-            Container
+        components: {
+            DragItem,
+            vuedraggable,
+            ConfigUi
+        },
+        mounted() {
+        this.$bus.$on('setOptionItem',(option,idx)=>{
+            this.options[idx].echartOption=option;
+            this.curOption=this.options[idx];
+            this.index=idx;
+        })
         },
         data() {
             return {
-                top: 0,
-                left: 0 ,
-                options:{
-                    type: "bar",
-                    width:undefined,
-                    height:undefined
-                }
+                miniTools: config.types,
+                index:0,
+                curOption:{},
+                options: [
+                    {
+                        type: 'bar',
+                        x: 80,
+                        y: 300,
+                        isActive:false,
+                        echartOption:undefined
+                    },
+                      {
+                        type: 'bar',
+                        x: 80,
+                        y: 300,
+                        isActive:false,
+                        echartOption:undefined
+                    }
+                ]
             }
         },
         methods: {
-             resize(newRect) {
-                this.options.width = newRect.width;
-                this.options.height = newRect.height;
-                this.top = newRect.top;
-                this.left = newRect.left;
+            setOption(item, idx) {
+                this.options[idx] = item;
             },
-            setContainer({width,height}){
-                this.options.width=width;
-                this.options.height=height;
+            onEnd: function (evt) {
+                if (evt.originalEvent.clientX >= 140) {
+                    this.options.push({
+                        type: this.miniTools[evt.oldIndex].value,
+                        x: evt.originalEvent.clientX - 100,
+                        y: evt.originalEvent.clientY - 100,
+                        echartOption:undefined,
+                        isActive:true,
+                    });
+                }
             }
         },
     }
 </script>
 
-<style  >
-    .echart-wrap{
+<style>
+    div.item.sortable-chosen.sortable-ghost {
+        cursor: pointer;
+        -webkit-user-drag: element;
+        user-select: element !important;
+    }
+    .rg-option{
+        position: absolute;
+        /* right: -290px; */
+        right:0;
+        width: 300px;
+        background: rgba(0, 0, 0, 0.2);
+        height: 100%;
+    }
+    .rg-option:hover{
+        right: 0;
+    }
+    .ghost {
+        background: red;
+    }
+
+    .wrapper {
+        cursor: pointer;
+    }
+
+    html,
+    body,
+    .body-wrap {
+        padding: 0;
+        margin: 0;
         width: 100%;
         height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .left-mini:hover {
+        left: 0;
+        cursor: pointer;
+    }
+
+    .left-mini {
+        width: 140px;
+        position: absolute;
+        left: -130px;
+        top: 0;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
     }
 </style>

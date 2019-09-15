@@ -1,8 +1,5 @@
 export default{
-    container:{
-        width:400,
-        height:200
-    },
+    container:[400,200],
     echartOption :{
         color: ['#3398DB'],
         tooltip : {

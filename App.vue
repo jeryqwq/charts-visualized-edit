@@ -12,7 +12,7 @@
         <DragItem v-for="(item,idx) in options" :key="idx" v-bind="{options:item,idx}"
          @setOption="setOption" @remove="remove" />
         <div class="rg-option">
-            <ConfigUi :curOption="this.options[this.index]" :index="index"/>
+            <ConfigUi v-if="this.options[this.index]" :curOption="this.options[this.index]" :index="index"/>
         </div>
     </div>
 </template>
@@ -39,23 +39,20 @@
             return {
                 miniTools: config.types,
                 index:0,
-                curOption:{},
-                options: [
-                    {
+                curOption:undefined,
+                options: [ {
                         type: 'bar',
                         x: 80,
                         y: 300,
                         isActive:false,
                         echartOption:undefined
-                    },
-                      {
+                    },{
                         type: 'bar',
                         x: 80,
                         y: 300,
                         isActive:false,
                         echartOption:undefined
-                    }
-                ]
+                    },]
             }
         },
         methods: {
@@ -75,7 +72,7 @@
                         x: evt.originalEvent.clientX - 100,
                         y: evt.originalEvent.clientY - 100,
                         echartOption:undefined,
-                        isActive:true,
+                        isActive:false,
                     });
                 }
             },

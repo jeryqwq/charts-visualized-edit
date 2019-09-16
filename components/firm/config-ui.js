@@ -16,26 +16,7 @@ export  default{
             ...defaultModel,
             ...echartOption,
         }:option={};
-        // option=echartOption;
-        // let deepClone=(val,option)=>{
-        //     for (const key in val) {
-        //         if (val.hasOwnProperty(key)) {
-        //             const element = val[key];
-        //             if(typeof element==='object'){
-        //                 try {
-        //                     option[key]?undefined:option[key]={}
-        //                 } catch (error) {
-                            
-        //                 }
-        //                 deepClone(element,option[key]);
-        //             }else{
-        //                 option[key]=val[key];
-        //             }
-        //         }
-        //     }
-        // }
-        // deepClone(defaultModel,option);
-        console.log(option)
+ 
         let deepIn=(val,mapping,descOption,option1)=>{
             for (const key in val) {
                     let element = val[key];
@@ -92,9 +73,9 @@ export  default{
                 <ChooseType options={options} val={this.curOptionKey} setOption={setOption} />
                 {
                     Object.keys(attrsMapping).map((key)=>{
-                      return  this.curOptionKey===key?<div>
+                      return  <div style={{display:this.curOptionKey===key?'block':'none'}}>
                           {deepGenerateDom(h,attrsMapping[key]) }
-                      </div>:undefined
+                      </div>
                     })
                 }
             </div>

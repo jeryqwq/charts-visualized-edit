@@ -9,9 +9,9 @@ export default {
             textStyle:{
                 color:'rgba(0,0,0,0.7)',
                 fontSize: 18,
-                textBorderColor:'rgb(0,0,0)',
+                textBorderColor:'rgba(0,0,0,0)',
                 textBorderWidth:0,
-                textShadowColor:'rgb(0,0,0)',
+                textShadowColor:'rgba(0,0,0,0)',
                 textShadowBlur:0,
                 textShadowOffsetX:0,
                 textShadowOffsetY:0,
@@ -20,9 +20,9 @@ export default {
             subtextStyle:{
                 color:'rgba(0,0,0,0.7)',
                 fontSize: 15,
-                textBorderColor:'rgb(0,0,0)',
+                textBorderColor:'rgba(0,0,0,0)',
                 textBorderWidth:0,
-                textShadowColor:'rgb(0,0,0)',
+                textShadowColor:'rgba(0,0,0,0)',
                 textShadowBlur:0,
                 textShadowOffsetX:0,
                 textShadowOffsetY:0,

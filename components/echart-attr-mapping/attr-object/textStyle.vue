@@ -75,8 +75,8 @@
                     fontSize: 15,
                     fontFamily: 'Microsoft YaHei',
                     textBorderWidth: 0,
-                    textBorderColor: 'white',
-                    textShadowColor: 'transparent',
+                    textBorderColor: 'rgba(0,0,0,0)',
+                    textShadowColor: 'rgba(0,0,0,0)',
                     textShadowBlur: 0,
                     textShadowOffsetX: 0,
                     textShadowOffsetY: 0,
@@ -86,6 +86,7 @@
         watch: {
             value: {
                 handler(newVal){
+                    console.log(123,newVal)
                 this.textStyle = newVal;
                 },
                 deep:true
@@ -98,7 +99,9 @@
             },
 
         },
-        mounted() {},
+        mounted() {
+            this.textStyle = this.value;
+        },
     }
 </script>
 

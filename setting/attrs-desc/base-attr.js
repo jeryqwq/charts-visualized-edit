@@ -1,8 +1,8 @@
 export default {
     title:{
         show:"是否显示标题",
-        left:'距离文档左边的距离',
-        top:'距离文档顶部的距离',
+        left:'左侧的距离',
+        top:'顶部的距离',
         text:'标题名称',
         textStyle:"标题文字属性",
         subtext:'副标题名称',
@@ -11,8 +11,8 @@ export default {
     legend:{
         show:'是否显示图列',
         left:'左侧的距离',
-        top:'上侧的距离',
-        orient:'图例列表的布局朝向',
+        top:'顶部的距离',
+        orient:'布局朝向',
         align: '文本的对齐',
         padding:'图例内边距',
         itemGap: '每项间隔',
@@ -25,7 +25,7 @@ export default {
         borderColor: '边框颜色',
         borderWidth:"边框线宽",
         borderRadius: "圆角半径",
-        shadowColor:'阴影颜色',//是否生成组件渲染生成渐变等多种颜色状态
+        shadowColor:'阴影颜色',//生成组件渲染支持渐变等多种颜色状态todo
         shadowOffsetX: "水平偏移",
         shadowOffsetY: '垂直偏移',
     }

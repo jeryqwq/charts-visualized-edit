@@ -12,22 +12,23 @@
                 </el-option>
             </el-select>
         </div>
+         <div class="">
+            文字描边颜色：<el-color-picker v-model="textStyle.textBorderColor" show-alpha :predefine="predefineColors">
+            </el-color-picker>
+        </div>
         <div class="">
             文字描边大小：
             <el-input-number v-model="textStyle.textBorderWidth" />
         </div>
-        <div class="">
-            文字描边颜色：<el-color-picker v-model="textStyle.textBorderColor" show-alpha :predefine="predefineColors">
+           <div class="">
+            文字阴影颜色：<el-color-picker v-model="textStyle.textShadowColor" show-alpha :predefine="predefineColors">
             </el-color-picker>
         </div>
          <div class="">
             文字阴影大小：
             <el-input-number v-model="textStyle.textShadowBlur" />
         </div>
-           <div class="">
-            文字阴影颜色：<el-color-picker v-model="textStyle.textShadowColor" show-alpha :predefine="predefineColors">
-            </el-color-picker>
-        </div>
+       
          <div class="">
             文字阴影横向偏移：
             <el-input-number v-model="textStyle.textShadowOffsetX" />
@@ -83,9 +84,11 @@
             }
         },
         watch: {
-            'value'(val) {
-                this.textStyle = val;
-                this.cb && this.cb(val);
+            value: {
+                handler(newVal){
+                this.textStyle = newVal;
+                },
+                deep:true
             },
             textStyle: {
                 handler(newVal) {

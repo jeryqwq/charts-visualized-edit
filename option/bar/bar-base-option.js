@@ -8,6 +8,9 @@ export default{
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
             }
         },
+        legend:{
+            show:true,
+        },
         grid: {
             left: '3%',
             right: '4%',

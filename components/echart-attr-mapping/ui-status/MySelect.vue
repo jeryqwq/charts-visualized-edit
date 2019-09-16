@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    props:['options','setOption'],
+    props:['options','setOption','val'],
     data() {
         return {
             value:'',
@@ -21,6 +21,14 @@ export default {
         change(val){
             this.setOption(val);
         }
+    },
+    watch: {
+        'val'(val){
+            this.value=val;
+        }
+    },
+    mounted() {
+        this.value=this.val;
     },
 }
 </script>

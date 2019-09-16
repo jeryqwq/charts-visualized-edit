@@ -12,7 +12,7 @@
         <DragItem v-for="(item,idx) in options" :key="idx" v-bind="{options:item,idx}"
          @setOption="setOption" @remove="remove" />
         <div class="rg-option">
-            <ConfigUi :curOption="curOption" :index="index"/>
+            <ConfigUi :curOption="this.options[this.index]" :index="index"/>
         </div>
     </div>
 </template>
@@ -31,7 +31,6 @@
         mounted() {
         this.$bus.$on('setOptionItem',(option,idx)=>{
             this.options[idx].echartOption=option;
-            this.curOption=this.options[idx];
             this.index=idx;
             this.setActive(idx);
         })
@@ -67,6 +66,7 @@
                 this.options.forEach((item,index) => {
                     index===idx?item.isActive=true:item.isActive=false;
                 });
+                // console.log('ck',idx);
             },
             onEnd: function (evt) {
                 if (evt.originalEvent.clientX >= 140) {
@@ -80,6 +80,7 @@
                 }
             },
             remove(idx){
+                // console.log('rm',idx)
                 this.options.splice(idx,1);
             },
         },

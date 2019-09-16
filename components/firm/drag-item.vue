@@ -1,11 +1,11 @@
 <template>
-    <div class='item-wrap'>
+    <div class='item-wrap'  v-if="$attrs.options">
         <vue-drag-resize :isActive="$attrs.options.isActive" :x="options.left" 
         :y="options.top" :w="options.width" :h="options.height" 
-        v-on:resizing="resize" 
+        v-on:resizing="resize"  
             v-on:dragging="resize" :minw='200' :minh="200" >
             <div class="action-btn" v-show="$attrs.options.isActive">
-                <span class="close" @click="remove()">X
+                <span class="close" @click="$emit('remove',$attrs.idx)">X
                 </span>
             </div>
             <Container :options="options" @setContainer="setContainer" 
@@ -51,9 +51,9 @@
                 this.options.width = width;
                 this.options.height = height;
             },
-            remove(){
-                this.$emit('remove',this.$attrs.idx);
-            }
+            // remove(){
+            //     this.;
+            // }
         },
     }
 </script>

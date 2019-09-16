@@ -13,5 +13,19 @@ export default{
            value:'pie',
            img:''
        }
-    ]
+    ],
+     optionName:{
+        title:{
+            name:"标题",
+            support:'ALL'
+        },
+        legend:{
+            name:"图例",
+            support:"ALL"
+        },
+        grid:{
+            name:'坐标网格',
+            support:['line','bar']
+        }
+    }
 }

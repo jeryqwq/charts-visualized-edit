@@ -29,7 +29,7 @@ export default {
         },
     },
     legend:{
-        show:false,
+        show:true,
         left:'auto',
         top:'auto',
         orient:'horizontal',

@@ -1,11 +1,7 @@
 export default {
     container:[300,300],
     echartOption: {
-        title : {
-            text: '某站点用户访问来源',
-            subtext: '纯属虚构',
-            x:'center'
-        },
+      
         tooltip : {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"

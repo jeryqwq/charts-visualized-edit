@@ -3,7 +3,7 @@
         <div class="left-mini">
             <vuedraggable class="wrapper" v-model="miniTools" ghost-class="ghost" @end="onEnd">
                 <transition-group>
-                    <div v-for="(item,idx) in miniTools" :key="idx" class="item">
+                    <div v-for="item in miniTools" :key="item.name" class="item">
                         <p>{{item.name}}</p>
                     </div>
                 </transition-group>

@@ -1,12 +1,12 @@
+import TextStyle from '../../components/echart-attr-mapping/attr-object/textStyle.vue';
+import MySwitch from '../../components/echart-attr-mapping/ui-status/MySwitch.vue';
 export default {
     title:{
         show:function(h,cb,descOption,val){
-              return <label>
+              return <span>
                   {descOption}:
-                  <input on-input={(e)=>{
-                    cb(e.target.value)
-                }}  value={val}/>
-              </label>
+                  <MySwitch cb={(val)=>{cb(val)}}  value={val}/>
+              </span>
         },
         left:function(h,cb,descOption,val){
             return   <label>
@@ -32,6 +32,12 @@ export default {
          }}  value={val}/>
        </label>
       },
+      textStyle:function(h,cb,descOption,val){
+        return <span>
+        {descOption}:
+        <TextStyle value={val} cb={(val)=>{cb(val)}}/>
+        </span>
+       },
         subtext:function(h,cb,descOption,val){
             return <label>
            {descOption}:
@@ -40,25 +46,22 @@ export default {
          }}  value={val}/>
        </label>
       },
-        textStyle:{
-            fontSize:function(h,cb,descOption,val){
-                return <label>
-               {descOption}:
-               <input on-input={(e)=>{
-                 cb(e.target.value)
-             }}  value={val}/>
-           </label>
-          },
-        },
-        subtextStyle:{
-            fontSize:function(h,cb,descOption,val){
-                return <label>
-               {descOption}:
-               <input on-input={(e)=>{
-                 cb(e.target.value)
-             }}  value={val}/>
-           </label>
-          },
-        },
-    }
+       
+        subtextStyle:function(h,cb,descOption,val){
+          return <span>
+          {descOption}:
+          <TextStyle value={val} cb={(val)=>{cb(val)}}/>
+          </span>
+         },
+    },
+    legend:{
+      show:function(h,cb,descOption,val){
+        return <span>
+            {descOption}:
+            <MySwitch cb={(val)=>{cb(val)}}  value={val}/>
+        </span>
+      },
+
+}
+
 }

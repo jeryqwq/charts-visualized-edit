@@ -10,11 +10,38 @@ export default{
         },
         legend:{
             show:true,
+            left:0,
+            top:0,
+            orient:'horizontal',
+            align: 'auto',
+            padding:5,
+            itemGap: 10,
+            itemWidth: 25,
+            itemHeight: 14,
+            symbolKeepAspect: true,
+            inactiveColor: '#ccc',
+            textStyle:{
+                color:'#333'
+            },
+            borderColor: 'rgba(0, 0, 0, 0)',
+            borderWidth: 1,
+            borderRadius: 0,
+            shadowBlur:{
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowBlur: 10
+            },
         },
         grid: {
             left: '3%',
             right: '4%',
             bottom: '3%',
+            orient:'horizontal',
+            align: 'auto',
+            padding:5,
+            itemGap: 10,
+            itemWidth: 25,
+            itemHeight: 14,
+            inactiveColor: '#ccc',
             containLabel: true
         },
         xAxis : [

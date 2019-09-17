@@ -31,7 +31,6 @@ export default {
             this.pcolor=val;
         },
         'pcolor'(val){
-            console.log(123,val)
             this.cb&&this.cb(val);
         }
     },

@@ -37,9 +37,15 @@ export default {
         legend: {
             show:true,
             top:20,
-            orient: 'vertical',
             left: 'left',
-            data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+            orient:'horizontal',
+            align: 'auto',
+            padding:5,
+            itemGap: 10,
+            itemWidth: 25,
+            itemHeight: 14,
+            symbolKeepAspect: true,
+            inactiveColor: '#ccc',
         },
         series : [
             {

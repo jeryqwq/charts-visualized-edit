@@ -21,7 +21,7 @@ export default {
         symbolKeepAspect: "是否保持宽高比",
         inactiveColor: '图例关闭时的颜色',
         textStyle:'文字样式',//文字组件，已封装
-        icon:'image://图片地址',
+        icon:'Base64|SVG',
         borderColor: '边框颜色',
         borderWidth:"边框线宽",
         borderRadius: "圆角半径",

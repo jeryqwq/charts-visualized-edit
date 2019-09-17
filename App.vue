@@ -28,7 +28,7 @@
             vuedraggable,
             ConfigUi
         },
-        mounted() {
+        created() {
         this.$bus.$on('setOptionItem',(option,idx)=>{
             this.options[idx].echartOption=option;
             this.index=idx;
@@ -46,13 +46,7 @@
                         y: 300,
                         isActive:false,
                         echartOption:undefined
-                    },{
-                        type: 'bar',
-                        x: 80,
-                        y: 300,
-                        isActive:false,
-                        echartOption:undefined
-                    },]
+                    }]
             }
         },
         methods: {

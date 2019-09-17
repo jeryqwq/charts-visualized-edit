@@ -16,17 +16,28 @@ export  default{
             ...defaultModel,
             ...echartOption,
         }:option={};
- 
+        // let deepClone=(option,defaultOption)=>{
+        //     for (const key in defaultOption) {
+        //         if (defaultOption.hasOwnProperty(key)) {
+        //             if(typeof defaultOption[key]==='object'){
+        //                 console.log(key)
+        //                 option[key]?undefined:option[key]={};
+        //                 deepClone(option[key],defaultOption[key]);
+        //             }else{
+        //                 if(!option[key]){
+        //                     option[key]=defaultOption[key]
+        //                 }
+        //                 //模板没有参数时试用默认参数，避免vue空参数无法监听
+        //             }
+        //         }
+        //     }
+        // }
+        // deepClone(option,defaultModel);
         let deepIn=(val,mapping,descOption,option1)=>{
             for (const key in val) {
                     let element = val[key];
                     if(typeof element==='object'){
-                        try {
                         option1[key]?undefined:option1[key]={};
-                        } catch (error) {
-                            
-                        }
-                        
                         attrsMapping[key]?undefined:attrsMapping[key]={};
                         deepIn(element, attrsMapping[key],descOption[key],option1[key]);//深度遍历属性配置
                     }else{
@@ -34,14 +45,14 @@ export  default{
                             mapping[key]=element(h,(val)=>{
                                 option1[key]=val;
                                 this.$bus.$emit('setOptionItem',option,this.$attrs.index);
-                        },descOption[key],option1[key]);
+                            },descOption[key],option1[key]);
                         }
                     }
             }
         }
     
         
-        deepIn(MappingOption,attrsMapping,descOption,option,defaultModel);
+        deepIn(MappingOption,attrsMapping,descOption,option);
         let deepGenerateDom=(h,val)=>{
             if(val.tag){
                 return val;

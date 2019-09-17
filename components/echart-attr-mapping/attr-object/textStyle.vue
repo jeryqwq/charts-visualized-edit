@@ -86,7 +86,6 @@
         watch: {
             value: {
                 handler(newVal){
-                    console.log(123,newVal)
                 this.textStyle = newVal;
                 },
                 deep:true

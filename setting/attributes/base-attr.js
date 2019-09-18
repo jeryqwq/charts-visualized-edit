@@ -1,78 +1,38 @@
+const {InputTypes} =require ('./../config').default;
 export default {
     title:{
-        show:true,
-        left:'auto',
-        top:'auto',
-        text:'',
-        textStyle:{
-            fontSize:15,
-            color:'#333',
-            textBorderColor:'rgba(0,0,0,0)',
-            textBorderWidth:0,
-            textShadowColor:'rgba(0,0,0,0)',
-            textShadowBlur:2,
-            textShadowOffsetX:2,
-            textShadowOffsetY:0,
-            fontFamily:'Microsoft YaHei'
-        },
-        subtext:'',
-        subtextStyle:{
-            fontSize:13,
-            color:'gray',
-            textBorderColor:'rgba(0,0,0,0)',
-            textBorderWidth:0,
-            textShadowColor:'rgba(0,0,0,0)',
-            textShadowBlur:0,
-            textShadowOffsetX:0,
-            textShadowOffsetY:0,
-            fontFamily:'Microsoft YaHei'
-        },
+        show:InputTypes.BOOLEAN,
+        left:InputTypes.STRING,
+        top:InputTypes.STRING,
+        text:InputTypes.STRING,
+        textStyle:InputTypes.TEXTSTYLE,
+        subtext:InputTypes.STRING,
+        subtextStyle:InputTypes.TEXTSTYLE
     },
     legend:{
-        show:true,
-        left:'auto',
-        top:'auto',
-        orient:'horizontal',
-        align: 'auto',
-        padding:5,
-        itemGap: 10,
-        itemWidth: 25,
-        itemHeight: 14,
-        symbolKeepAspect: false,
-        inactiveColor: '#ccc',
-        textStyle:{
-            fontSize:13,
-            color:'gray',
-            textBorderColor:'rgba(0, 0, 0, 0)',
-            textBorderWidth:0,
-            textShadowColor:'rgba(0, 0, 0, 0)',
-            textShadowBlur:0,
-            textShadowOffsetX:0,
-            textShadowOffsetY:0,
-            fontFamily:'Microsoft YaHei',
-        },
-
+        show:InputTypes.BOOLEAN,
+        left:InputTypes.STRING,
+        top:InputTypes.STRING,
+        orient:InputTypes.SELECT,
+        align:InputTypes.STRING,
+        padding:InputTypes.NUMBER,
+        itemGap: InputTypes.NUMBER,
+        itemWidth: InputTypes.NUMBER,
+        itemHeight: InputTypes.NUMBER,
+        symbolKeepAspect:InputTypes.BOOLEAN,
+        inactiveColor: InputTypes.COLOR,
+        textStyle:InputTypes.TEXTSTYLE,
             // icon:'image://data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
-            borderColor: 'rgba(0, 0, 0, 0)',
-            borderWidth: 1,
-            borderRadius: 0,
-            shadowBlur:{
-                shadowColor: 'rgba(0, 0, 0, 0.5)',
-                shadowBlur: 10
-            },
-            shadowColor:'red',//是否生成组件渲染生成渐变等多种颜色状态
-            shadowOffsetX: 0,
-            shadowOffsetY: 0,
-            pageTextStyle:{
-                fontSize:13,
-                color:'gray',
-                textBorderColor:'rgba(0, 0, 0, 0)',
-                textBorderWidth:0,
-                textShadowColor:'rgba(0, 0, 0, 0)',
-                textShadowBlur:0,
-                textShadowOffsetX:0,
-                textShadowOffsetY:0,
-                fontFamily:'Microsoft YaHei'
-        }
+        borderColor: InputTypes.COLOR,
+        borderWidth: InputTypes.NUMBER,
+        borderRadius: InputTypes.NUMBER,
+        // shadowBlur:{
+        //     shadowColor:InputTypes.COLOR,
+        //     shadowBlur: InputTypes.NUMBER
+        // },
+        shadowColor:InputTypes.COLOR,//是否生成组件渲染生成渐变等多种颜色状态
+        shadowOffsetX: InputTypes.NUMBER,
+        shadowOffsetY: InputTypes.NUMBER,
+        pageTextStyle:InputTypes.TEXTSTYLE
     }
 }

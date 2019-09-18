@@ -49,10 +49,10 @@ export default {
             borderWidth: 1,
             borderRadius: 0,
             shadowBlur:{
-                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowColor: 'rgba(0, 0, 0, 0)',
                 shadowBlur: 10
             },
-            shadowColor:'red',//是否生成组件渲染生成渐变等多种颜色状态
+            shadowColor:'rgba(0,0,0,0)',//是否生成组件渲染生成渐变等多种颜色状态
             shadowOffsetX: 0,
             shadowOffsetY: 0,
         },

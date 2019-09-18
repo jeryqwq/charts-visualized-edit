@@ -1,21 +1,30 @@
+import generateInput from './../../setting/generate';
 export  default{
     data(){
         return{
             curOptionKey:'title',
         }
     },
+    // watch: {
+    //     '$attrs.curOption':{
+    //         deep:true,
+    //         handler(val){
+    //             // this.$forceUpdate();
+    //         }
+    //     }
+    // },
     render(h){
         let attrsMapping={},option={};//属性生成对象，根据render函数生成获取属性对应的控件
         let {echartOption,type}=this.$attrs.curOption;
-        let MappingOption=require(`./../../setting/attrs-mapping/base-attr`).default;//映射全局通用控件
+        // let MappingOption=require(`./../../setting/attrs-mapping/base-attr`).default;//映射全局通用控件
         let descOption=require(`./../../setting/attrs-desc/base-attr`).default;//映射全局通用属性描述
-        let defaultModel=require(`./../../setting/attributes/base-attr`).default;//映射全局通用默认值
+        let defaultModel=require(`./../../setting/attributes/base-attr`).default;//映射全局通用默认值类型
         let ChooseType=require(`./../echart-attr-mapping/ui-status/MySelect.vue`).default;
         let {optionName}=require(`./../../setting/config`).default;
         echartOption?option={
-            ...defaultModel,
             ...echartOption,
         }:option={};
+        console.log(echartOption)
         // let deepClone=(option,defaultOption)=>{
         //     for (const key in defaultOption) {
         //         if (defaultOption.hasOwnProperty(key)) {
@@ -41,18 +50,17 @@ export  default{
                         attrsMapping[key]?undefined:attrsMapping[key]={};
                         deepIn(element, attrsMapping[key],descOption[key],option1[key]);//深度遍历属性配置
                     }else{
-                        if(typeof element==='function'){
-                            mapping[key]=element(h,(val)=>{
+                        if(typeof element==='string'){
+                            mapping[key]=generateInput(h,(val)=>{
                                 option1[key]=val;
+                                console.log("状态："+key,val)
                                 this.$bus.$emit('setOptionItem',option,this.$attrs.index);
-                            },descOption[key],option1[key]);
+                            },descOption[key],option1[key],element);
                         }
                     }
             }
         }
-    
-        
-        deepIn(MappingOption,attrsMapping,descOption,option);
+        echartOption&&deepIn(defaultModel,attrsMapping,descOption,option);
         let deepGenerateDom=(h,val)=>{
             if(val.tag){
                 return val;
@@ -83,11 +91,11 @@ export  default{
             <div>
                 <ChooseType options={options} val={this.curOptionKey} setOption={setOption} />
                 {
-                    Object.keys(attrsMapping).map((key)=>{
+                   echartOption? Object.keys(attrsMapping).map((key)=>{
                       return  <div style={{display:this.curOptionKey===key?'block':'none'}}>
                           {deepGenerateDom(h,attrsMapping[key]) }
                       </div>
-                    })
+                    }):undefined
                 }
             </div>
         )

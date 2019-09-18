@@ -7,10 +7,10 @@ import echarts from 'echarts';
 
 export default {
           props:{
-        typeOptions:{
-            type:Object,
-            default:()=>{return{}}
-        },
+            typeOptions:{
+                type:Object,
+                default:()=>{return{}}
+            },
         index:{
             type:Number,
         }
@@ -42,7 +42,9 @@ export default {
         }
     },
     mounted() {
-        this.echartEl=echarts.init(this.$refs.echart);
+        let mapType=require('./mapdata/china.json');
+        echarts.registerMap('china',mapType);
+        this.echartEl=echarts.init(this.$refs['echart']);
         this.echartEl.setOption(this.typeOptions);
         this.$bus.$emit('setOptionItem',this.typeOptions,this.index)
     },

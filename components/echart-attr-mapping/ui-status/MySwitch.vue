@@ -18,10 +18,15 @@ export default {
             pvalue:false
         }
     },
-    watch: {
-        'value'(val){
-        this.pvalue=val;
-        }
+    // watch: {
+    //     immediate:true,
+    //     deep:true,
+    //     'value'(val){
+    //     this.pvalue=val;
+    //     }
+    // },
+    mounted() {
+        this.pvalue=this.value;
     },
     methods: {
         change(val){

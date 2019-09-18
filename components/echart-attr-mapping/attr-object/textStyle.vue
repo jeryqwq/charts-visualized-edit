@@ -75,7 +75,7 @@
                     fontSize: 15,
                     fontFamily: 'Microsoft YaHei',
                     textBorderWidth: 0,
-                    textBorderColor: 'rgba(0,0,0,0)',
+                    textBorderColor: 'red',
                     textShadowColor: 'rgba(0,0,0,0)',
                     textShadowBlur: 0,
                     textShadowOffsetX: 0,

@@ -1,7 +1,10 @@
+
 import TextStyle from '../../components/echart-attr-mapping/attr-object/textStyle.vue';
 import MySwitch from '../../components/echart-attr-mapping/ui-status/MySwitch.vue';
 import MySelect from '../../components/echart-attr-mapping/ui-status/MySelect.vue';
-import MyColorPicker from '../../components/echart-attr-mapping/ui-status/MyColorPick.vue'
+import MyColorPicker from '../../components/echart-attr-mapping/ui-status/MyColorPick.vue';
+import generateInput from './../generate.js';
+const {InputTypes} =require('./../config').default;
 export default {
     title:{
         show:function(h,cb,descOption,val){
@@ -140,12 +143,12 @@ export default {
     </label>
     },
     inactiveColor:function(h,cb,descOption,val){
-      return  <label>
+      return  <span>
     {descOption}:
     <MyColorPicker cb={(val)=>{
       cb(val) 
     }} color={val}/>
-    </label>
+    </span>
     },
     textStyle:function(h,cb,descOption,val){
       return <span>
@@ -154,13 +157,44 @@ export default {
       </span>
      },
      borderColor:function(h,cb,descOption,val){
-      return  <label>
+      return  <span>
     {descOption}:
     <MyColorPicker cb={(val)=>{
       cb(val) 
     }} color={val}/>
-    </label>},
+    </span>},
     borderWidth:function(h,cb,descOption,val){
+      return  <label>
+    {descOption}:
+    <input type="number" on-input={(e)=>{
+     cb(parseInt(e.target.value));
+    }}  value={val}/>
+    </label>
+    },
+    borderRadius:function(h,cb,descOption,val){
+      return  <label>
+    {descOption}:
+    <input type="number" on-input={(e)=>{
+     cb(parseInt(e.target.value));
+    }}  value={val}/>
+    </label>
+    },
+    shadowColor:function(h,cb,descOption,val){
+      return  <span>
+    {descOption}:
+    <MyColorPicker cb={(val)=>{
+      cb(val) 
+    }} color={val}/>
+    </span>},
+    shadowOffsetX:function(h,cb,descOption,val){
+      return  <label>
+    {descOption}:
+    <input type="number" on-input={(e)=>{
+     cb(parseInt(e.target.value));
+    }}  value={val}/>
+    </label>
+    },
+    shadowOffsetY:function(h,cb,descOption,val){
       return  <label>
     {descOption}:
     <input type="number" on-input={(e)=>{

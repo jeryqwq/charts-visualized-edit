@@ -5,6 +5,7 @@
                 <transition-group>
                     <div v-for="item in miniTools" :key="item.name" class="item">
                         <p>{{item.name}}</p>
+                        <img :src="require('./statis/imgs/'+item.img+'.png')"/>
                     </div>
                 </transition-group>
             </vuedraggable>
@@ -37,7 +38,7 @@
         },
         data() {
             return {
-                miniTools: config.types,
+                miniTools:config.types,
                 index:0,
                 curOption:undefined,
                 options: [ {

@@ -8,6 +8,35 @@ export default{
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
             }
         },
+        title: {
+            show: true,
+            text: '条形图标题',
+            left: 100,
+            top: 15,
+            textStyle: {
+                color: 'rgba(0,0,0,0.7)',
+                fontSize: 18,
+                textBorderColor: 'rgba(0,0,0,0)',
+                textBorderWidth: 0,
+                textShadowColor: 'rgba(0,0,0,0)',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                fontFamily: 'Microsoft YaHei'
+            },
+            subtextStyle: {
+                color: 'rgba(0,0,0,0.7)',
+                fontSize: 15,
+                textBorderColor: 'rgba(0,0,0,0)',
+                textBorderWidth: 0,
+                textShadowColor: 'rgba(0,0,0,0)',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                fontFamily: 'Microsoft YaHei'
+            },
+            subtext: '副标题'
+        },
         legend:{
             show:true,
             left:0,
@@ -21,16 +50,38 @@ export default{
             symbolKeepAspect: true,
             inactiveColor: '#ccc',
             textStyle:{
-                color:'#333'
+                fontSize:13,
+                color:'gray',
+                textBorderColor:'rgba(0, 0, 0, 0)',
+                textBorderWidth:0,
+                textShadowColor:'rgba(0, 0, 0, 0)',
+                textShadowBlur:0,
+                textShadowOffsetX:0,
+                textShadowOffsetY:0,
+                fontFamily:'Microsoft YaHei',
             },
             borderColor: 'rgba(0, 0, 0, 0)',
             borderWidth: 1,
             borderRadius: 0,
             shadowBlur:{
-                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowColor:'rgba(0, 0, 0, 0)',
                 shadowBlur: 10
             },
+            shadowColor:'rgba(0,0,0,0)',//是否生成组件渲染生成渐变等多种颜色状态
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+            pageTextStyle:{
+                fontSize:13,
+                color:'#333',
+                textBorderColor:'rgba(0, 0, 0, 0)',
+                textBorderWidth:0,
+                textShadowColor:'rgba(0, 0, 0, 0)',
+                textShadowBlur:0,
+                textShadowOffsetX:0,
+                textShadowOffsetY:0,
+                fontFamily:'Microsoft YaHei'
         },
+    },
         grid: {
             left: '3%',
             right: '4%',

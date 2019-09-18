@@ -16,20 +16,17 @@ export  default{
     render(h){
         let attrsMapping={},option={};//属性生成对象，根据render函数生成获取属性对应的控件
         let {echartOption,type}=this.$attrs.curOption;
-        // let MappingOption=require(`./../../setting/attrs-mapping/base-attr`).default;//映射全局通用控件
-        let descOption=require(`./../../setting/attrs-desc/base-attr`).default;//映射全局通用属性描述
-        let defaultModel=require(`./../../setting/attributes/base-attr`).default;//映射全局通用默认值类型
+        let descOption=require(`./../../setting/attrs-desc/${type}.js`).default;//映射全局通用属性描述
+        let defaultModel=require(`./../../setting/attributes/${type}.js`).default;//映射全局通用默认值类型
         let ChooseType=require(`./../echart-attr-mapping/ui-status/MySelect.vue`).default;
         let {optionName}=require(`./../../setting/config`).default;
-        echartOption?option={
-            ...echartOption,
-        }:option={};
-        console.log(echartOption)
+        console.log(descOption,defaultModel)
+
+        option=echartOption;
         // let deepClone=(option,defaultOption)=>{
         //     for (const key in defaultOption) {
         //         if (defaultOption.hasOwnProperty(key)) {
         //             if(typeof defaultOption[key]==='object'){
-        //                 console.log(key)
         //                 option[key]?undefined:option[key]={};
         //                 deepClone(option[key],defaultOption[key]);
         //             }else{
@@ -55,12 +52,14 @@ export  default{
                                 option1[key]=val;
                                 console.log("状态："+key,val)
                                 this.$bus.$emit('setOptionItem',option,this.$attrs.index);
-                            },descOption[key],option1[key],element);
+                            },descOption[key],option1[key],element,key);
                         }
                     }
             }
         }
-        echartOption&&deepIn(defaultModel,attrsMapping,descOption,option);
+        echartOption&&deepIn(defaultModel,attrsMapping,descOption,echartOption);
+        console.log(attrsMapping)
+
         let deepGenerateDom=(h,val)=>{
             if(val.tag){
                 return val;
@@ -89,7 +88,7 @@ export  default{
         })();
         return(
             <div>
-                <ChooseType options={options} val={this.curOptionKey} setOption={setOption} />
+                请选择属性:<ChooseType options={options} val={this.curOptionKey} setOption={setOption} />
                 {
                    echartOption? Object.keys(attrsMapping).map((key)=>{
                       return  <div style={{display:this.curOptionKey===key?'block':'none'}}>

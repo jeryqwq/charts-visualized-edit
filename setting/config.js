@@ -49,6 +49,9 @@ export default {
         grid: {
             name: '坐标网格',
             support: ['line', 'bar']
+        },
+        tooltip:{
+            name:'提示框组件'
         }
     }
 }

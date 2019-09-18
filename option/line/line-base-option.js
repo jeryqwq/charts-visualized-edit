@@ -56,6 +56,21 @@ export default {
             shadowOffsetX: 0,
             shadowOffsetY: 0,
         },
+        grid:{
+            show:true,
+            left:"10",
+            top:"10",
+            widht:"80%",
+            height:'80%',
+            containLabel:false,
+            backgroundColor:"rgba(0,0,0,0)",
+            borderColor:'rgba(0,0,0,0)',
+            borderWidth:1,
+            shadowBlur:1,
+            shadowColor:'rgba(0,0,0,0)',
+            shadowOffsetX:0,
+            shadowOffsetY:0,
+          },
         xAxis: {
             type: 'category',
             data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']

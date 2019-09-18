@@ -82,19 +82,45 @@ export default{
                 fontFamily:'Microsoft YaHei'
         },
     },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            orient:'horizontal',
-            align: 'auto',
-            padding:5,
-            itemGap: 10,
-            itemWidth: 25,
-            itemHeight: 14,
-            inactiveColor: '#ccc',
-            containLabel: true
+    grid:{
+        show:true,
+        left:"50",
+        top:"50",
+        widht:"60%",
+        height:'60%',
+        containLabel:false,
+        backgroundColor:"rgba(0,0,0,0)",
+        borderColor:'rgba(0,0,0,0)',
+        borderWidth:1,
+        shadowBlur:1,
+        shadowColor:'rgba(0,0,0,0)',
+        shadowOffsetX:0,
+        shadowOffsetY:0,
+      },
+      tooltip:{
+        show: true,
+        // position:
+        trigger: 'item',
+        alwaysShowContent:true,
+        triggerOn:"mousemove",
+        // position:'[10, 10]',
+        formatter:'{b0}: {c0}<br />{b1}: {c1}',
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        borderColor: '#333',
+        borderWidth:0,
+        padding: 5,
+        textStyle:{
+            fontSize:13,
+            color:'#333',
+            textBorderColor:'rgba(0, 0, 0, 0)',
+            textBorderWidth:0,
+            textShadowColor:'rgba(0, 0, 0, 0)',
+            textShadowBlur:0,
+            textShadowOffsetX:0,
+            textShadowOffsetY:0,
+            fontFamily:'Microsoft YaHei'
         },
+    },
         xAxis : [
             {
                 type : 'category',

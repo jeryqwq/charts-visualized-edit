@@ -14,7 +14,7 @@ export default {
         left:InputTypes.STRING,
         top:InputTypes.STRING,
         orient:InputTypes.SELECT,
-        align:InputTypes.STRING,
+        align:InputTypes.SELECT,
         padding:InputTypes.NUMBER,
         itemGap: InputTypes.NUMBER,
         itemWidth: InputTypes.NUMBER,

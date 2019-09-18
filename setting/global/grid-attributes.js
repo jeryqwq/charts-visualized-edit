@@ -1,25 +1,19 @@
+const {InputTypes} =require ('./../config').default;
 export default{
-    show:true,
-    left:10,
-    top:10,
-    widht:'auto',
-    height:'auto',
-    containLabel:false,
-    backgroundColor:'rgba(0,0,0,0)',
-    borderColor:'#333',
-    borderWidth:1,
-    shadowBlur:5,
-    shadowColor:'rgba(0,0,0,0)',
-    shadowOffsetX:5,
-    shadowOffsetY:0,
-    tooltip:{
-        show: true,
-        // position:
-        trigger: 'item',
-        backgroundColor: 'rgba(50,50,50,0.7)',
-        borderColor: '#333',
-        borderWidth: 0,
-        padding: 5,
-        textStyle:{},
+    grid:{
+    show:InputTypes.BOOLEAN,
+    left:InputTypes.STRING,
+    top:InputTypes.STRING,
+    widht:InputTypes.STRING,
+    height:InputTypes.STRING,
+    containLabel:InputTypes.BOOLEAN,
+    backgroundColor:InputTypes.COLOR,
+    borderColor:InputTypes.COLOR,
+    borderWidth:InputTypes.NUMBER,
+    shadowBlur:InputTypes.NUMBER,
+    shadowColor:InputTypes.COLOR,
+    shadowOffsetX:InputTypes.NUMBER,
+    shadowOffsetY:InputTypes.NUMBER,
+
     }
 }

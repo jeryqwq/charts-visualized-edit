@@ -30,6 +30,14 @@ export default function generateInput(h,cb,descOption,val,type,key) {
           }}  value={val}/>
           </label>
         break;
+        case InputTypes.ARRAYDATA://数据集
+        return  <label>
+          {descOption}:
+          <input on-input={(e)=>{
+            cb(e.target.value.split(','))
+        }}  value={val} />
+      </label>
+    break;
         case InputTypes.SELECT://下拉框选项
         return  inputData[key]?<span>{descOption}<MySelect options={inputData[key]} val={val} setOption={(val)=>{cb(val)}}/></span>:<h4>{key}未被识别的下拉框</h4>
         break;

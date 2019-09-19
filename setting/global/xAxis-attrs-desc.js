@@ -2,7 +2,7 @@ export default{
     xAxis:{
         show: "是否展示X轴",
         name: "坐标轴的名称",
-        // position: ...,
+        position: "坐标轴位置",
         offset: "偏移",
         type: '坐标轴类型',
         nameLocation:'名称显示位置',

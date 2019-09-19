@@ -1,5 +1,5 @@
 <template>
-    <el-color-picker v-model="pcolor" show-alpha :predefine="predefineColors">
+    <el-color-picker v-model="pcolor" size="mini" show-alpha :predefine="predefineColors">
             </el-color-picker>
 </template>
 <script>
@@ -7,7 +7,7 @@ export default {
     props:['value','cb'],
     data() {
         return {
-            pcolor:'#333',
+            pcolor:'#fff',
             predefineColors: [
             '#ff4500',
             '#ff8c00',
@@ -27,7 +27,8 @@ export default {
         }
     },
     watch: {
-        'color'(val){
+        'value'(val){
+            console.log(val)
             this.pcolor=val;
         },
         'pcolor'(val){

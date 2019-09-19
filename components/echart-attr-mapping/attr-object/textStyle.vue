@@ -1,8 +1,9 @@
 <template>
     <div>
         <div>
-            文字颜色： <el-color-picker v-model="textStyle.color" show-alpha :predefine="predefineColors">
-        </el-color-picker>
+            文字颜色： 
+                    <MyColorPicker :value="textStyle.color" :cb="(val)=>{textStyle.color=val}"/>
+
         </div>
         <div>文字大小：
             <el-input-number v-model="textStyle.fontSize" />
@@ -13,16 +14,15 @@
             </el-select>
         </div>
          <div class="">
-            文字描边颜色：<el-color-picker v-model="textStyle.textBorderColor" show-alpha :predefine="predefineColors">
-            </el-color-picker>
+            文字描边颜色：<MyColorPicker :value="textStyle.textBorderColor" :cb="(val)=>{textStyle.textBorderColor=val}"/>
         </div>
         <div class="">
             文字描边大小：
             <el-input-number v-model="textStyle.textBorderWidth" />
         </div>
            <div class="">
-            文字阴影颜色：<el-color-picker v-model="textStyle.textShadowColor" show-alpha :predefine="predefineColors">
-            </el-color-picker>
+            文字阴影颜色：
+            <MyColorPicker :value="textStyle.textShadowColor" :cb="(val)=>{textStyle.textShadowColor=val}"/>
         </div>
          <div class="">
             文字阴影大小：
@@ -40,7 +40,11 @@
     </div>
 </template>
 <script>
+import MyColorPicker from './../ui-status/MyColorPick';
     export default {
+        components:{
+         MyColorPicker   
+        },
         props: ['value', 'cb'],
         data() {
             return {
@@ -83,6 +87,7 @@
                 }
             }
         },
+
         watch: {
             value: {
                 handler(newVal){

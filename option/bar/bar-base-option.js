@@ -118,7 +118,7 @@ export default {
         xAxis: {
             show: true,
             name: "坐标轴的名称",
-            // position: ...,
+            position: [10,10],
             offset: 0,
             type: 'category',
             nameLocation: 'end',

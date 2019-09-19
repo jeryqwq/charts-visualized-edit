@@ -3,7 +3,7 @@ export default{
     xAxis:{
     show: InputTypes.BOOLEAN,
     name: InputTypes.STRING,
-    // position: ...,
+    position: InputTypes.ARRAYDATA,
     offset: InputTypes.NUMBER,
     type: InputTypes.SELECT,
     nameLocation:InputTypes.SELECT,

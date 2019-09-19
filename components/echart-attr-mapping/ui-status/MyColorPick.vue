@@ -4,7 +4,7 @@
 </template>
 <script>
 export default {
-    props:['color','cb'],
+    props:['value','cb'],
     data() {
         return {
             pcolor:'#333',
@@ -35,7 +35,7 @@ export default {
         }
     },
     mounted() {
-        this.color?this.pcolor=this.color:undefined;
+        this.value?this.pcolor=this.value:undefined;
     },
 }
 </script>

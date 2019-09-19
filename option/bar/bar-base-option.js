@@ -1,13 +1,7 @@
-export default{
-    container:[400,200],
-    echartOption :{
+export default {
+    container: [400, 200],
+    echartOption: {
         color: ['#3398DB'],
-        tooltip : {
-            trigger: 'axis',
-            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
         title: {
             show: true,
             text: '条形图标题',
@@ -37,111 +31,158 @@ export default{
             },
             subtext: '副标题'
         },
-        legend:{
-            show:true,
-            left:0,
-            top:0,
-            orient:'horizontal',
+        legend: {
+            show: true,
+            left: 0,
+            top: 0,
+            orient: 'horizontal',
             align: 'auto',
-            padding:5,
+            padding: 5,
             itemGap: 10,
             itemWidth: 25,
             itemHeight: 14,
             symbolKeepAspect: true,
             inactiveColor: '#ccc',
-            textStyle:{
-                fontSize:13,
-                color:'gray',
-                textBorderColor:'rgba(0, 0, 0, 0)',
-                textBorderWidth:0,
-                textShadowColor:'rgba(0, 0, 0, 0)',
-                textShadowBlur:0,
-                textShadowOffsetX:0,
-                textShadowOffsetY:0,
-                fontFamily:'Microsoft YaHei',
+            textStyle: {
+                fontSize: 13,
+                color: 'gray',
+                textBorderColor: 'rgba(0, 0, 0, 0)',
+                textBorderWidth: 0,
+                textShadowColor: 'rgba(0, 0, 0, 0)',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                fontFamily: 'Microsoft YaHei',
             },
             borderColor: 'rgba(0, 0, 0, 0)',
             borderWidth: 1,
             borderRadius: 0,
-            shadowBlur:{
-                shadowColor:'rgba(0, 0, 0, 0)',
+            shadowBlur: {
+                shadowColor: 'rgba(0, 0, 0, 0)',
                 shadowBlur: 10
             },
-            shadowColor:'rgba(0,0,0,0)',//是否生成组件渲染生成渐变等多种颜色状态
+            shadowColor: 'rgba(0,0,0,0)', //是否生成组件渲染生成渐变等多种颜色状态
             shadowOffsetX: 0,
             shadowOffsetY: 0,
-            pageTextStyle:{
-                fontSize:13,
-                color:'#333',
-                textBorderColor:'rgba(0, 0, 0, 0)',
-                textBorderWidth:0,
-                textShadowColor:'rgba(0, 0, 0, 0)',
-                textShadowBlur:0,
-                textShadowOffsetX:0,
-                textShadowOffsetY:0,
-                fontFamily:'Microsoft YaHei'
+            pageTextStyle: {
+                fontSize: 13,
+                color: '#333',
+                textBorderColor: 'rgba(0, 0, 0, 0)',
+                textBorderWidth: 0,
+                textShadowColor: 'rgba(0, 0, 0, 0)',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                fontFamily: 'Microsoft YaHei'
+            },
         },
-    },
-    grid:{
-        show:true,
-        left:"50",
-        top:"50",
-        widht:"60%",
-        height:'60%',
-        containLabel:false,
-        backgroundColor:"rgba(0,0,0,0)",
-        borderColor:'rgba(0,0,0,0)',
-        borderWidth:1,
-        shadowBlur:1,
-        shadowColor:'rgba(0,0,0,0)',
-        shadowOffsetX:0,
-        shadowOffsetY:0,
-      },
-      tooltip:{
-        show: true,
-        // position:
-        trigger: 'item',
-        alwaysShowContent:true,
-        triggerOn:"mousemove",
-        // position:'[10, 10]',
-        formatter:'{b0}: {c0}<br />{b1}: {c1}',
-        backgroundColor: 'rgba(0,0,0,0.3)',
-        borderColor: '#333',
-        borderWidth:0,
-        padding: 5,
-        textStyle:{
-            fontSize:13,
-            color:'#333',
-            textBorderColor:'rgba(0, 0, 0, 0)',
-            textBorderWidth:0,
-            textShadowColor:'rgba(0, 0, 0, 0)',
-            textShadowBlur:0,
-            textShadowOffsetX:0,
-            textShadowOffsetY:0,
-            fontFamily:'Microsoft YaHei'
+        grid: {
+            show: true,
+            left: "50",
+            top: "50",
+            widht: "60%",
+            height: '60%',
+            containLabel: false,
+            backgroundColor: "rgba(0,0,0,0)",
+            borderColor: 'rgba(0,0,0,0)',
+            borderWidth: 1,
+            shadowBlur: 1,
+            shadowColor: 'rgba(0,0,0,0)',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
         },
-    },
-        xAxis : [
-            {
-                type : 'category',
-                data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                axisTick: {
-                    alignWithLabel: true
+        tooltip: {
+            show: true,
+            // position:
+            trigger: 'item',
+            alwaysShowContent: true,
+            triggerOn: "mousemove",
+            // position:'[10, 10]',
+            formatter: '{b0}: {c0}<br />{b1}: {c1}',
+            backgroundColor: 'rgba(0,0,0,0.3)',
+            borderColor: '#333',
+            borderWidth: 0,
+            padding: 5,
+            textStyle: {
+                fontSize: 13,
+                color: '#333',
+                textBorderColor: 'rgba(0, 0, 0, 0)',
+                textBorderWidth: 0,
+                textShadowColor: 'rgba(0, 0, 0, 0)',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                fontFamily: 'Microsoft YaHei'
+            },
+        },
+        xAxis: {
+            show: true,
+            name: "坐标轴的名称",
+            // position: ...,
+            offset: 0,
+            type: 'category',
+            nameLocation: 'end',
+            nameTextStyle: {
+                fontSize: 13,
+                color: '#333',
+                textBorderColor: 'rgba(0, 0, 0, 0)',
+                textBorderWidth: 0,
+                textShadowColor: 'rgba(0, 0, 0, 0)',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                fontFamily: 'Microsoft YaHei'
+            },
+            nameGap: 15,
+            nameRotate: null,
+            inverse: false,
+            min: null,
+            max: null,
+            minInterval: 0,
+            silent: false,
+            triggerEvent: false,
+            axisLine: {
+                show: true,
+                onZero: true,
+                // onZeroAxisIndex:
+                symbol: 'none',
+                symbolSize: [10, 15],
+                symbolOffset: [0, 0],
+                lineStyle:{
+                    color: '#333',
+                    width: 1,
+                    type: 'solid',
+                    shadowColor:'rgba(0,0,0,0)',
+                    shadowBlur:{
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10
+                    },
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
                 }
-            }
-        ],
-        yAxis : [
-            {
-                type : 'value'
-            }
-        ],
-        series : [
-            {
-                name:'直接访问',
-                type:'bar',
-                barWidth: '60%',
-                data:[10, 52, 200, 334, 390, 330, 220]
-            }
-        ]
+            },
+            axisTick: {
+
+            },
+            axisLabel: {
+
+            },
+            splitLine: {
+
+            },
+            splitArea: {
+
+            },
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        },
+        yAxis: [{
+            type: 'value'
+        }],
+        series: [{
+            name: '直接访问',
+            type: 'bar',
+            barWidth: '60%',
+            data: [10, 52, 200, 334, 390, 330, 220]
+        }]
     }
 }

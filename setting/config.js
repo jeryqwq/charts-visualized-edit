@@ -35,23 +35,32 @@ export default {
         COLOR:'COLOR',
         SELECT:"SELECT",
         STRING:"STRING",
-        NUMBER:'NUMBER'
+        NUMBER:'NUMBER',
+        AXISLINE:"AXISLINE",
+        AXISTICK:"AXISTICK",
+        AXISLABEL:'AXISLABEL',
+        SPLITLINE:'SPLITLINE',
+        SPLITAREA:'SPLITAREA',
+        ARRAYDATA:"ARRAYDATA",
     },
     optionName: {
         title: {
-            name: "标题",
+            name: "title | 标题",
             support: 'ALL'
         },
         legend: {
-            name: "图例",
+            name: "legend | 图例",
             support: "ALL"
         },
         grid: {
-            name: '坐标网格',
+            name: 'grid | 坐标网格',
             support: ['line', 'bar']
         },
         tooltip:{
-            name:'提示框组件'
-        }
+            name:'tooltip | 提示框组件'
+        },
+        xAxis:{
+            name:'xAxis | X轴'
+        },
     }
 }

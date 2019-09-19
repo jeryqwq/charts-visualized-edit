@@ -92,6 +92,7 @@
         width: 300px;
         background: rgba(0, 0, 0, 0.2);
         height: 100%;
+            overflow: scroll;
     }
     .rg-option:hover{
         right: 0;

@@ -13,7 +13,7 @@
         <DragItem v-for="(item,idx) in options" :key="idx" v-bind="{options:item,idx}"
          @setOption="setOption" @remove="remove" />
         <div class="rg-option">
-            <ConfigUi v-if="this.options[this.index]" :curOption="this.options[this.index]" :index="index"/>
+            <ConfigUi v-if="options[index]" :curOption="options[index]" :index="index"/>
         </div>
     </div>
 </template>

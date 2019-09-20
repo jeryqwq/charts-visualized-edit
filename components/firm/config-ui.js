@@ -1,18 +1,20 @@
 import generateInput from './../../setting/generate';
 export  default{
+    name:'ConfigUi1',
     data(){
         return{
             curOptionKey:'title',
         }
     },
-    // watch: {
-    //     '$attrs.curOption':{
-    //         deep:true,
-    //         handler(val){
-    //             // this.$forceUpdate();
-    //         }
-    //     }
-    // },
+    watch: {
+        '$attrs.curOption':{
+            deep:true,
+            handler(val){
+                console.log(123,val)
+                // this.$forceUpdate();
+            }
+        }
+    },
     render(h){
         let attrsMapping={},option={};//属性生成对象，根据render函数生成获取属性对应的控件
         let {echartOption,type}=this.$attrs.curOption;
@@ -20,8 +22,6 @@ export  default{
         let defaultModel=require(`./../../setting/attributes/${type}.js`).default;//映射全局通用默认值类型
         let ChooseType=require(`./../echart-attr-mapping/ui-status/MySelect.vue`).default;
         let {optionName}=require(`./../../setting/config`).default;
-        console.log(descOption,defaultModel)
-
         option=echartOption;
         // let deepClone=(option,defaultOption)=>{
         //     for (const key in defaultOption) {
@@ -50,7 +50,7 @@ export  default{
                         if(typeof element==='string'){
                             mapping[key]=generateInput(h,(val)=>{
                                 option1[key]=val;
-                                console.log("状态："+key,val)
+                                console.log("状态："+key,val,this.$attrs.index)
                                 this.$bus.$emit('setOptionItem',option,this.$attrs.index);
                             },descOption[key],option1[key],element,key);
                         }
@@ -58,8 +58,6 @@ export  default{
             }
         }
         echartOption&&deepIn(defaultModel,attrsMapping,descOption,echartOption);
-        console.log(attrsMapping)
-
         let deepGenerateDom=(h,val)=>{
             if(val.tag){
                 return val;

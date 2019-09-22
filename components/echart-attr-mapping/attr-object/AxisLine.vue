@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div :class="isOpen?'normal':'close'" >
+                <div @click="isOpen=!isOpen">点击展开>></div>
         <div>
             是否显示轴线:<el-switch v-model="axisLine.show"></el-switch>
         </div>
@@ -44,6 +45,7 @@ import LineStyle from './lineStyle';
         },
         data() {
             return {
+                isOpen:false,
                 axisLine: {
                     show: true,
                     onZero: true,

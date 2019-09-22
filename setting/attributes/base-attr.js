@@ -7,7 +7,9 @@ export default {
         text:InputTypes.STRING,
         textStyle:InputTypes.TEXTSTYLE,
         subtext:InputTypes.STRING,
-        subtextStyle:InputTypes.TEXTSTYLE
+        subtextStyle:InputTypes.TEXTSTYLE,
+        shadowColor:InputTypes.COLOR,
+        shadowBlur:InputTypes.SHADOWBLUR,
     },
     legend:{
         show:InputTypes.BOOLEAN,
@@ -26,10 +28,7 @@ export default {
         borderColor: InputTypes.COLOR,
         borderWidth: InputTypes.NUMBER,
         borderRadius: InputTypes.NUMBER,
-        // shadowBlur:{
-        //     shadowColor:InputTypes.COLOR,
-        //     shadowBlur: InputTypes.NUMBER
-        // },
+        shadowBlur:InputTypes.SHADOWBLUR,
         shadowColor:InputTypes.COLOR,//是否生成组件渲染生成渐变等多种颜色状态
         shadowOffsetX: InputTypes.NUMBER,
         shadowOffsetY: InputTypes.NUMBER,

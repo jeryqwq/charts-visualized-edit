@@ -1,7 +1,6 @@
 export default {
     container: [400, 200],
     echartOption: {
-        color: ['#3398DB'],
         title: {
             show: true,
             text: '条形图标题',
@@ -18,6 +17,7 @@ export default {
                 textShadowOffsetY: 0,
                 fontFamily: 'Microsoft YaHei'
             },
+            subtext: '副标题',
             subtextStyle: {
                 color: 'rgba(0,0,0,0.7)',
                 fontSize: 15,
@@ -29,7 +29,11 @@ export default {
                 textShadowOffsetY: 0,
                 fontFamily: 'Microsoft YaHei'
             },
-            subtext: '副标题'
+            shadowColor:"rgba(0,0,0,0)",
+            shadowBlur :{
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowBlur: 10
+            }
         },
         legend: {
             show: true,
@@ -93,11 +97,10 @@ export default {
         },
         tooltip: {
             show: true,
-            // position:
+            // position:'[10, 10]',
             trigger: 'item',
             alwaysShowContent: true,
             triggerOn: "mousemove",
-            // position:'[10, 10]',
             formatter: '{b0}: {c0}<br />{b1}: {c1}',
             backgroundColor: 'rgba(0,0,0,0.3)',
             borderColor: '#333',
@@ -162,10 +165,34 @@ export default {
                 }
             },
             axisTick: {
-
+                show: true,
+                alignWithLabel: false,
+                interval: 0,
+                inside: false,
+                length: 5,
+                lineStyle:{
+                    color: '#333',
+                    width: 1,
+                    type: 'solid',
+                    shadowColor:'rgba(0,0,0,0)',
+                    shadowBlur:{
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10
+                    },
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                }
             },
             axisLabel: {
-
+                fontSize: 12,
+                color: '#333',
+                textBorderColor: 'rgba(0, 0, 0, 0)',
+                textBorderWidth: 0,
+                textShadowColor: 'rgba(0, 0, 0, 0)',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                fontFamily: 'Microsoft YaHei'
             },
             splitLine: {
 

@@ -10,7 +10,7 @@ export default{
     backgroundColor:InputTypes.COLOR,
     borderColor:InputTypes.COLOR,
     borderWidth:InputTypes.NUMBER,
-    shadowBlur:InputTypes.NUMBER,
+    shadowBlur:InputTypes.SHADOWBLUR,
     shadowColor:InputTypes.COLOR,
     shadowOffsetX:InputTypes.NUMBER,
     shadowOffsetY:InputTypes.NUMBER,

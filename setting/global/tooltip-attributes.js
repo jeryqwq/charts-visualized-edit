@@ -2,11 +2,10 @@ const {InputTypes} =require ('./../config').default;
 export default{
         tooltip:{
             show: InputTypes.BOOLEAN,
-            // position:
+            // position:InputTypes.ARRAYDATA,
             trigger: InputTypes.SELECT,
             alwaysShowContent:InputTypes.BOOLEAN,
             triggerOn:InputTypes.SELECT,
-            // position:InputTypes.STRING,
             formatter:InputTypes.STRING,
             backgroundColor: InputTypes.COLOR,
             borderColor: InputTypes.COLOR,

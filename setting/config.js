@@ -42,6 +42,7 @@ export default {
         SPLITLINE:'SPLITLINE',
         SPLITAREA:'SPLITAREA',
         ARRAYDATA:"ARRAYDATA",
+        SHADOWBLUR:'SHADOWBLUR',
     },
     optionName: {
         title: {

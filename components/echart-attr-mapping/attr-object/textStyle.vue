@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div :class="isOpen?'normal':'close'"  >
+        <div @click="isOpen=!isOpen">点击展开>></div>
         <div>
             文字颜色： 
                     <MyColorPicker :value="textStyle.color" :cb="(val)=>{textStyle.color=val}"/>
-
         </div>
         <div>文字大小：
             <el-input-number v-model="textStyle.fontSize" />
@@ -48,6 +48,7 @@ import MyColorPicker from './../ui-status/MyColorPick';
         props: ['value', 'cb'],
         data() {
             return {
+                isOpen:false,
                 options: [{
                     value: '微软雅黑',
                     label: 'Microsoft YaHei'

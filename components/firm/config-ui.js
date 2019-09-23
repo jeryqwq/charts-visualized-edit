@@ -23,22 +23,6 @@ export  default{
         let ChooseType=require(`./../echart-attr-mapping/ui-status/MySelect.vue`).default;
         let {optionName}=require(`./../../setting/config`).default;
         option=echartOption;
-        // let deepClone=(option,defaultOption)=>{
-        //     for (const key in defaultOption) {
-        //         if (defaultOption.hasOwnProperty(key)) {
-        //             if(typeof defaultOption[key]==='object'){
-        //                 option[key]?undefined:option[key]={};
-        //                 deepClone(option[key],defaultOption[key]);
-        //             }else{
-        //                 if(!option[key]){
-        //                     option[key]=defaultOption[key]
-        //                 }
-        //                 //模板没有参数时试用默认参数，避免vue空参数无法监听
-        //             }
-        //         }
-        //     }
-        // }
-        // deepClone(option,defaultModel);
         let deepIn=(val,mapping,descOption,option1)=>{
             for (const key in val) {
                     let element = val[key];
@@ -50,7 +34,7 @@ export  default{
                         if(typeof element==='string'){
                             mapping[key]=generateInput(h,(val)=>{
                                 option1[key]=val;
-                                console.log("状态："+key,val,this.$attrs.index)
+                                console.log("状态："+key,val);
                                 this.$bus.$emit('setOptionItem',option,this.$attrs.index);
                             },descOption[key],option1[key],element,key);
                         }

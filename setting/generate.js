@@ -1,16 +1,26 @@
+/*  
+识别库
+将对应属性的类型映射为控件渲染,控件状态改变自动触发依赖的属性改变，刷新图表数据
+*/
 import TextStyle from './../components/echart-attr-mapping/attr-object/textStyle.vue';
 import MySwitch from './../components/echart-attr-mapping/ui-status/MySwitch.vue';
 import MySelect from './../components/echart-attr-mapping/ui-status/MySelect.vue';
 import MyColorPicker from './../components/echart-attr-mapping/ui-status/MyColorPick.vue';
-import XAxisLine from './../components/echart-attr-mapping/attr-object/xAxisLine.vue'
+import AxisLine from './../components/echart-attr-mapping/attr-object/AxisLine.vue'
 import inputData from './Input-data';
+import ShadowBlur from './../components/echart-attr-mapping/attr-object/shadowBlur.vue';
+import AxisTick from './../components/echart-attr-mapping/attr-object/axisTick.vue';
+import AxisLabel from './../components/echart-attr-mapping/attr-object/axisLabel.vue'
 const {InputTypes} =require('./config').default;
 const InputTypesMapping={//组件映射，避免频繁判断渲染
   BOOLEAN:MySwitch,
   COLOR:MyColorPicker,
   SELECT:MySelect,
   TEXTSTYLE:TextStyle,
-  AXISLINE:XAxisLine
+  AXISLINE:AxisLine,
+  SHADOWBLUR:ShadowBlur,
+  AXISTICK:AxisTick,
+  AXISLABEL:TextStyle,
 }
 export default function generateInput(h,cb,descOption,val,type,key) {
     switch (type) {

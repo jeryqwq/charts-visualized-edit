@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div :class="isOpen?'normal':'close'">
+       <div @click="isOpen=!isOpen">点击展开>></div>
       <div class="">线条颜色: <MyColorPicker :value="pValue.color" :cb="(val)=>{pValue.color=val}" /></div>
       <div class="">线条宽度：<el-input-number v-model="pValue.width"/></div>
       <div class="">轴线类型：<el-select v-model="pValue.type" placeholder="请选择">
@@ -31,6 +32,7 @@ export default {
     props:['value','cb'],
     data() {
         return {
+            isOpen:false,
             pValue:{
                 color: '#333',
                 width: 1,
@@ -59,9 +61,7 @@ watch: {
         }
     }
 },
-mounted() {
-    console.log(this.value);
-},
+
 }
 </script>
 

@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <div class="">阴影模糊颜色: <MyColorPicker :value="pValue.shadowColor" :cb="(val)=>{pValue.shadowColor=val}" /></div>
-    <div class="">
-        阴影模糊大小:<el-input-number v-model="pValue.shadowBlur"/>
+  <div :class="isOpen?'normal':'close'" >
+                      <div @click="isOpen=!isOpen">点击展开>></div>
+    <div>
     </div>
   </div>
 </template>
@@ -15,10 +14,7 @@ export default {
     props:['value','cb'],
     data() {
         return {
-                pValue:{
-                    shadowColor: 'rgba(0, 0, 0, 0.5)',
-                    shadowBlur: 10
-                },
+            isOpen:false,
             }
         },
 watch: {
@@ -35,7 +31,9 @@ watch: {
         }
     }
 },
-
+mounted() {
+    console.log(123,this.value);
+},
 }
 </script>
 

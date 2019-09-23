@@ -7,6 +7,8 @@ export default {
         textStyle:"标题文字属性",
         subtext:'副标题名称',
         subtextStyle:"副标题文字属性",
+        shadowColor:'阴影颜色',
+        shadowBlur:'阴影模糊属性'
     },
     legend:{
         show:'是否显示图列',

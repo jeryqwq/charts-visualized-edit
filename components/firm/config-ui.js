@@ -1,43 +1,46 @@
 import generateInput from './../../setting/generate';
 export  default{
-    name:'ConfigUi1',
+    name:'ConfigUi',
     data(){
         return{
             curOptionKey:'title',
         }
     },
-    watch: {
-        '$attrs.curOption':{
-            deep:true,
-            handler(val){
-                console.log(123,val)
-                // this.$forceUpdate();
-            }
-        }
-    },
     render(h){
-        let attrsMapping={},option={};//属性生成对象，根据render函数生成获取属性对应的控件
+        let attrsMapping={};//属性生成对象，根据render函数生成获取属性对应的控件
         let {echartOption,type}=this.$attrs.curOption;
         let descOption=require(`./../../setting/attrs-desc/${type}.js`).default;//映射全局通用属性描述
         let defaultModel=require(`./../../setting/attributes/${type}.js`).default;//映射全局通用默认值类型
         let ChooseType=require(`./../echart-attr-mapping/ui-status/MySelect.vue`).default;
         let {optionName}=require(`./../../setting/config`).default;
-        option=echartOption;
-        let deepIn=(val,mapping,descOption,option1)=>{
+        // let option={};
+        // let deepCloneOption=(val,option1)=>{
+        //     for (const key in val) {
+        //         if (val.hasOwnProperty(key)) {
+        //             const element = val[key];
+        //             if(typeof element ==="object"){
+        //                 option1[key]={};
+        //                 deepCloneOption(element,option1[key]);
+        //             }else{
+        //                 option1[key]=element;
+        //             }
+        //         }
+        //     }
+        // }
+        // deepCloneOption(echartOption,option);
+        // console.log(option)
+        let deepIn=(val,mapping,descOption,option1)=>{//控件类型  jSX映射控件  描述  配置对象
             for (const key in val) {
-                    let element = val[key];
-                    if(typeof element==='object'){
-                        option1[key]?undefined:option1[key]={};
-                        attrsMapping[key]?undefined:attrsMapping[key]={};
-                        deepIn(element, attrsMapping[key],descOption[key],option1[key]);//深度遍历属性配置
+                    if(typeof val[key]==='object'){
+                        option1[key]?undefined:option1[key]=new Object;
+                        mapping[key]?undefined:mapping[key]=new Object;
+                        deepIn(val[key], mapping[key],descOption[key],option1[key]);//深度遍历属性配置
                     }else{
-                        if(typeof element==='string'){
                             mapping[key]=generateInput(h,(val)=>{
                                 option1[key]=val;
                                 console.log("状态："+key,val);
-                                this.$bus.$emit('setOptionItem',option,this.$attrs.index);
-                            },descOption[key],option1[key],element,key);
-                        }
+                                // this.$bus.$emit('setOptionItem',echartOption,this.$attrs.index);
+                            },descOption[key],option1[key],val[key],key);
                     }
             }
         }

@@ -9,7 +9,7 @@
                 </span>
             </div>
             <Container :options="options" @setContainer="setContainer" 
-            :index="$attrs.idx" />
+            :index="$attrs.idx" :key="$attrs.idx"/>
         </vue-drag-resize>
     </div>
 </template>
@@ -35,8 +35,8 @@
             }
         },
         mounted() {
-            this.$attrs.options.x?this.options.left=this.$attrs.options.x:undefined;
-            this.$attrs.options.y?this.options.top=this.$attrs.options.y:undefined;
+            this.$attrs.options.x&&(this.options.left=this.$attrs.options.x);
+            this.$attrs.options.y&&(this.options.top=this.$attrs.options.y);
             this.$attrs.options.echartOption?this.options.echartOption=this.$attrs.options.echartOption:undefined;
         },
         methods: {

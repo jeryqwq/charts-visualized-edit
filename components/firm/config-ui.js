@@ -8,6 +8,7 @@ export  default{
     },
     render(h){
         let attrsMapping={};//属性生成对象，根据render函数生成获取属性对应的控件
+        console.log(this.$attrs.curOption)
         let {echartOption,type}=this.$attrs.curOption;
         let descOption=require(`./../../setting/attrs-desc/${type}.js`).default;//映射全局通用属性描述
         let defaultModel=require(`./../../setting/attributes/${type}.js`).default;//映射全局通用默认值类型
@@ -38,8 +39,9 @@ export  default{
                     }else{
                             mapping[key]=generateInput(h,(val)=>{
                                 option1[key]=val;
-                                console.log("状态："+key,val);
-                                // this.$bus.$emit('setOptionItem',echartOption,this.$attrs.index);
+                                // console.log("状态："+key,val);
+                                // console.log(this.$attrs.index)
+                                this.$bus.$emit('setOptionItem',echartOption,this.$attrs.index);
                             },descOption[key],option1[key],val[key],key);
                     }
             }

@@ -5,7 +5,7 @@
         v-on:resizing="resize"  
             v-on:dragging="resize" :minw='200' :minh="200" >
             <div class="action-btn" v-show="$attrs.options.isActive">
-                <span class="close" @click="$emit('remove',$attrs.idx)">X
+                <span class="close" @click.self="remove">X
                 </span>
             </div>
             <Container :options="options" @setContainer="setContainer" 
@@ -51,9 +51,9 @@
                 this.options.width = width;
                 this.options.height = height;
             },
-            // remove(){
-            //     this.;
-            // }
+            remove(){
+                this.$bus.$emit('delItem',this.$attrs.idx)
+            }
         },
     }
 </script>

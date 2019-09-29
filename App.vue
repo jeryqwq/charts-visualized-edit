@@ -3,17 +3,18 @@
         <div class="left-mini">
             <vuedraggable class="wrapper" v-model="miniTools" ghost-class="ghost" @end="onEnd">
                 <transition-group>
-                    <div v-for="item in miniTools" :key="item.name" class="item">
+                    <div v-for="(item,idx) in miniTools" :key="idx" class="item">
                         <p>{{item.name}}</p>
                         <img :src="require('./statis/imgs/'+item.img+'.png')"/>
                     </div>
                 </transition-group>
             </vuedraggable>
         </div>
-        <DragItem v-for="(item,idx) in options" :key="idx" v-bind="{options:item,idx}"
-         @setOption="setOption" @remove="remove" />
+        <DragItem v-for="(item,idx) in options" :key="item.id"  :options="item" :idx="idx"
+         @setOption="setOption" />
         <div class="rg-option">
-            <ConfigUi v-if="options[index]" :curOption="options[index]" :index="index"/>
+            <ConfigUi v-if="options[index]" :curOption="options[index]"
+             :index="index" />
         </div>
     </div>
 </template>
@@ -31,10 +32,15 @@
         },
         created() {
         this.$bus.$on('setOptionItem',(option,idx)=>{
-            this.options[idx].echartOption=option;
+            console.log('app Setoption',option)
+            // this.options[idx]=option;
+            this.$set(this.options[idx],'echartOption',option)
             this.index=idx;
             this.setActive(idx);
-        })
+        });
+            this.$bus.$on('delItem',(idx)=>{
+                 this.$delete(this.options,idx);
+        });
         },
         data() {
             return {
@@ -43,6 +49,7 @@
                 curOption:undefined,
                 options: [ {
                         type: 'bar',
+                        id:10001,
                         x: 80,
                         y: 300,
                         isActive:false,
@@ -52,13 +59,12 @@
         },
         methods: {
             setOption(item, idx) {
-                this.options[idx] = item;
+                this.$set(this.options,idx,item)
             },
             setActive(idx){
                 this.options.forEach((item,index) => {
-                    index===idx?item.isActive=true:item.isActive=false;
+                    index===idx?this.$set(this.options[index],'isActive',true):this.$set(this.options[index],'isActive',false);
                 });
-                // console.log('ck',idx);
             },
             onEnd: function (evt) {
                 if (evt.originalEvent.clientX >= 140) {
@@ -66,14 +72,11 @@
                         type: this.miniTools[evt.oldIndex].value,
                         x: evt.originalEvent.clientX - 100,
                         y: evt.originalEvent.clientY - 100,
+                        id:Math.random(),
                         echartOption:undefined,
                         isActive:false,
                     });
                 }
-            },
-            remove(idx){
-                // console.log('rm',idx)
-                this.options.splice(idx,1);
             },
         },
     }

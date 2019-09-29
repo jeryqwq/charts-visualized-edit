@@ -13,7 +13,7 @@ export default{
     },
     render(h) {
         let {type}=this.$attrs.options;
-        this.typeOption=require(`./../../option/${type}/${type}-base-option`).default;;
+        this.typeOption=require(`./../../option/${type}/${type}-base-option`).default;
         let [width,height]=this.typeOption.container;
         if(!this.$attrs.options.width||!this.$attrs.options.height){//先使用默认配置的宽高
             this.$emit('setContainer',{width,height,idx:this.$attrs.idx});

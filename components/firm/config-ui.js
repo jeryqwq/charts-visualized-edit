@@ -8,7 +8,6 @@ export  default{
     },
     render(h){
         let attrsMapping={};//属性生成对象，根据render函数生成获取属性对应的控件
-        console.log(this.$attrs.curOption)
         let {echartOption,type}=this.$attrs.curOption;
         let descOption=require(`./../../setting/attrs-desc/${type}.js`).default;//映射全局通用属性描述
         let defaultModel=require(`./../../setting/attributes/${type}.js`).default;//映射全局通用默认值类型

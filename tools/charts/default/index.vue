@@ -44,7 +44,7 @@ export default {
     mounted() {
         this.echartEl=echarts.init(this.$refs.echart);
         this.echartEl.setOption(this.typeOptions);
-        this.$bus.$emit('setOptionItem',this.typeOptions,this.index)
+        this.eventBus();
     },
 }
 </script>

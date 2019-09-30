@@ -32,8 +32,6 @@
         },
         created() {
         this.$bus.$on('setOptionItem',(option,idx)=>{
-            console.log('app Setoption',option)
-            // this.options[idx]=option;
             this.$set(this.options[idx],'echartOption',option)
             this.index=idx;
             this.setActive(idx);
@@ -50,7 +48,7 @@
                 options: [ {
                         type: 'bar',
                         id:10001,
-                        x: 80,
+                        x: 180,
                         y: 300,
                         isActive:false,
                         echartOption:undefined

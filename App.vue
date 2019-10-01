@@ -33,11 +33,15 @@
         created() {
         this.$bus.$on('setOptionItem',(option,idx)=>{
             this.$set(this.options[idx],'echartOption',option)
+            this.options.forEach((item,index) => {
+                    index===idx?this.$set(this.options[index],'isActive',true):this.$set(this.options[index],'isActive',false);
+            }); 
             this.index=idx;
-            this.setActive(idx);
-        });
+            });
             this.$bus.$on('delItem',(idx)=>{
-                 this.$delete(this.options,idx);
+                 this.$nextTick().then((res)=>{
+                     this.$delete(this.options,this.index);
+                 })
         });
         },
         data() {
@@ -59,11 +63,6 @@
             setOption(item, idx) {
                 this.$set(this.options,idx,item)
             },
-            setActive(idx){
-                this.options.forEach((item,index) => {
-                    index===idx?this.$set(this.options[index],'isActive',true):this.$set(this.options[index],'isActive',false);
-                });
-            },
             onEnd: function (evt) {
                 if (evt.originalEvent.clientX >= 140) {
                     this.options.push({
@@ -74,6 +73,7 @@
                         echartOption:undefined,
                         isActive:false,
                     });
+                    this.index=this.options.length-1;
                 }
             },
         },

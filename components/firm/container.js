@@ -12,14 +12,14 @@ export default{
         },
     },
     render(h) {
-        let {type}=this.$attrs.options;
+        let {type,echartOption}=this.$attrs.options;
         let typeOption=require(`./../../option/${type}/${type}-base-option`).default;
-        this.$set(this,'typeOption',typeOption)
-        let [width,height]=this.typeOption.container;
+        // this.$set(this,'typeOption',typeOption)
+        let [width,height]=typeOption.container;
         if(!this.$attrs.options.width||!this.$attrs.options.height){//先使用默认配置的宽高
             this.$emit('setContainer',{width,height,idx:this.$attrs.idx});
         };
-        let curOption=this.$attrs.options.echartOption||this.typeOption.echartOption;
+        let curOption=echartOption||typeOption.echartOption;
         let Echart=require(`./../../tools/charts/${this.$attrs.options.type}/index.js`);
         return(
             <div style={{width:`${this.$attrs.options.width}px`,height:`${this.$attrs.options.height}px`}}>

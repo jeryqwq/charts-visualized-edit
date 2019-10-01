@@ -53,7 +53,7 @@
             },
             remove(){
                 this.$bus.$emit('delItem',this.$attrs.idx)
-            }
+            },
         },
     }
 </script>

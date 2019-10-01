@@ -1,4 +1,4 @@
-const {InputTypes} =require ('../config').default;
+const {InputTypes} =require ('./../config').default;
 export default{
     xAxis:{
     show: InputTypes.BOOLEAN,

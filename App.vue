@@ -61,7 +61,8 @@
         },
         methods: {
             setOption(item, idx) {
-                this.$set(this.options,idx,item)
+                this.$set(this.options,idx,item);
+                this.index=idx;
             },
             onEnd: function (evt) {
                 if (evt.originalEvent.clientX >= 140) {

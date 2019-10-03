@@ -13,22 +13,7 @@ export  default{
         let defaultModel=require(`./../../setting/attributes/${type}.js`).default;//映射全局通用默认值类型
         let ChooseType=require(`./../echart-attr-mapping/ui-status/MySelect.vue`).default;
         let {optionName}=require(`./../../setting/config`).default;
-        // let option={};
-        // let deepCloneOption=(val,option1)=>{
-        //     for (const key in val) {
-        //         if (val.hasOwnProperty(key)) {
-        //             const element = val[key];
-        //             if(typeof element ==="object"){
-        //                 option1[key]={};
-        //                 deepCloneOption(element,option1[key]);
-        //             }else{
-        //                 option1[key]=element;
-        //             }
-        //         }
-        //     }
-        // }
-        // deepCloneOption(echartOption,option);
-        // console.log(option)
+        console.log(echartOption)
         let deepIn=(val,mapping,descOption,option1)=>{//控件类型  jSX映射控件  描述  配置对象
             for (const key in val) {
                     if(typeof val[key]==='object'){
@@ -38,9 +23,8 @@ export  default{
                     }else{
                             mapping[key]=generateInput(h,(val)=>{
                                 option1[key]=val;
-                                // console.log("状态："+key,val);
-                                // console.log(this.$attrs.index)
-                                this.$bus.$emit('setOptionItem',echartOption,this.$attrs.index);
+                                console.log("状态："+key,val);
+                                // this.$bus.$emit('setOptionItem',echartOption,this.$attrs.index);
                             },descOption[key],option1[key],val[key],key);
                     }
             }

@@ -1,6 +1,6 @@
 <template>
   <div :class="isOpen?'normal':'close'" >
-                      <div @click="isOpen=!isOpen">点击展开>></div>
+        <div @click="isOpen=!isOpen">点击展开>></div>
     <div>
     </div>
   </div>

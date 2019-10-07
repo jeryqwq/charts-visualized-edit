@@ -10,7 +10,8 @@ import AxisLine from './../components/echart-attr-mapping/attr-object/AxisLine.v
 import inputData from './Input-data';
 import ShadowBlur from './../components/echart-attr-mapping/attr-object/shadowBlur.vue';
 import AxisTick from './../components/echart-attr-mapping/attr-object/axisTick.vue';
-import AxisLabel from './../components/echart-attr-mapping/attr-object/axisLabel.vue'
+import  LineStyle from './../components/echart-attr-mapping/attr-object/lineStyle.vue';
+import SplitArea from './../components/echart-attr-mapping/attr-object/split-area.vue'
 const {InputTypes} =require('./config').default;
 const InputTypesMapping={//组件映射，避免频繁判断渲染
   BOOLEAN:MySwitch,
@@ -21,6 +22,8 @@ const InputTypesMapping={//组件映射，避免频繁判断渲染
   SHADOWBLUR:ShadowBlur,
   AXISTICK:AxisTick,
   AXISLABEL:TextStyle,
+  LINESTYLE:LineStyle,
+  SPLITAREA:SplitArea
 }
 export default function generateInput(h,cb,descOption,val,type,key) {
     switch (type) {

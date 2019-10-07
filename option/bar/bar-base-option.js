@@ -196,22 +196,161 @@ export default function(){
                     fontFamily: 'Microsoft YaHei'
                 },
                 splitLine: {
-    
+                    show: true,
+                    interval: 0,
+                    lineStyle: {
+                        color: 'rgba(0, 0, 0, 0.2)',
+                        width: 1,
+                        type: 'solid',
+                        shadowBlur: {
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10
+                        },
+                        shadowColor: 'rgba(0, 0, 0, 0.2)',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 0.7
+                    }
                 },
                 splitArea: {
-    
+                    interval: 0,
+                    show: true,
+                    areaStyle: {
+                        color: 'rgba(250,250,250,0)',
+                        shadowBlur: {
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10 
+                        },
+                        shadowColor: 'red',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 0.7
+                    }
                 },
                 data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             },
-            yAxis: [{
-                type: 'value'
-            }],
+            yAxis:  {
+                show: true,
+                position: [10,10],
+                offset: 0,
+                name:'yAxis 名称',
+                type: 'value',
+                nameLocation: 'end',
+                nameTextStyle: {
+                    fontSize: 13,
+                    color: '#333',
+                    textBorderColor: 'rgba(0, 0, 0, 0)',
+                    textBorderWidth: 0,
+                    textShadowColor: 'rgba(0, 0, 0, 0)',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    fontFamily: 'Microsoft YaHei'
+                },
+                nameGap: 15,
+                nameRotate: null,
+                inverse: false,
+                min: null,
+                max: null,
+                minInterval: 0,
+                silent: false,
+                triggerEvent: false,
+                axisLine: {
+                    show: true,
+                    onZero: true,
+                    // onZeroAxisIndex:
+                    symbol: 'none',
+                    symbolSize: [10, 15],
+                    symbolOffset: [0, 0],
+                    lineStyle:{
+                        color: '#333',
+                        width: 1,
+                        type: 'solid',
+                        shadowColor:'rgba(0,0,0,0)',
+                        shadowBlur:{
+                            shadowColor: 'rgba(0, 0, 0, 0)',
+                            shadowBlur: 10
+                        },
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                    }
+                },
+                axisTick: {
+                    show: true,
+                    alignWithLabel: false,
+                    interval: 0,
+                    inside: false,
+                    length: 5,
+                    lineStyle:{
+                        color: '#333',
+                        width: 1,
+                        type: 'solid',
+                        shadowColor:'rgba(0,0,0,0)',
+                        shadowBlur:{
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10
+                        },
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                    }
+                },
+                axisLabel: {
+                    fontSize: 12,
+                    color: '#333',
+                    textBorderColor: 'rgba(0, 0, 0, 0)',
+                    textBorderWidth: 0,
+                    textShadowColor: 'rgba(0, 0, 0, 0)',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    fontFamily: 'Microsoft YaHei'
+                },
+                splitLine: {
+                    show: true,
+                    interval: 0,
+                    lineStyle: {
+                        color: 'rgba(0, 0, 0, 0)',
+                        width: 1,
+                        type: 'solid',
+                        shadowBlur: {
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10
+                        },
+                        shadowColor: 'rgba(0, 0, 0, 0.2)',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 0.7
+                    }
+                },
+                splitArea: {
+                    interval: 0,
+                    show: true,
+                    areaStyle: {
+                        color: 'rgba(250,250,250,0)',
+                        shadowBlur: {
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10 
+                        },
+                        shadowColor: 'red',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 0.7
+                    }
+                },
+            },
             series: [{
                 name: '直接访问',
                 type: 'bar',
                 barWidth: '60%',
                 data: [10, 52, 200, 334, 390, 330, 220]
-            }]
+            },
+            {
+                name: '间接访问',
+                type: 'line',
+                barWidth: '60%',
+                data: [220,100, 52, 200, 334, 390, 330]
+            },
+        ]
         }
     }
 }

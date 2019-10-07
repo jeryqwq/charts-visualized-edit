@@ -13,7 +13,7 @@ export  default{
         let defaultModel=require(`./../../setting/attributes/${type}.js`).default;//映射全局通用默认值类型
         let ChooseType=require(`./../echart-attr-mapping/ui-status/MySelect.vue`).default;
         let {optionName}=require(`./../../setting/config`).default;
-        console.log(echartOption)
+        // console.log(echartOption)
         let deepIn=(val,mapping,descOption,option1)=>{//控件类型  jSX映射控件  描述  配置对象
             for (const key in val) {
                     if(typeof val[key]==='object'){

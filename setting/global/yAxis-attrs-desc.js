@@ -1,5 +1,5 @@
 export default{
-    xAxis:{
+    yAxis:{
         show: "是否展示X轴",
         name: "坐标轴的名称",
         position: "坐标轴位置",
@@ -24,6 +24,5 @@ export default{
             lineStyle:'坐标轴轴线'
         },
         splitArea:"分隔区域",
-        data : "数据源",
     }
 }

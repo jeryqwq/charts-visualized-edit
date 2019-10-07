@@ -5,16 +5,14 @@
                 <transition-group>
                     <div v-for="(item,idx) in miniTools" :key="idx" class="item">
                         <p>{{item.name}}</p>
-                        <img :src="require('./statis/imgs/'+item.img+'.png')"/>
+                        <img :src="require('./statis/imgs/'+item.img+'.png')" />
                     </div>
                 </transition-group>
             </vuedraggable>
         </div>
-        <DragItem v-for="(item,idx) in options" :key="item.id"  :options="item" :idx="idx"
-         @setOption="setOption" />
+        <DragItem v-for="(item,idx) in options" :key="item.id" :options="item" :idx="idx" @setOption="setOption" />
         <div class="rg-option">
-            <ConfigUi v-if="options[index]" :curOption="options[index]"
-             :index="index" />
+            <ConfigUi v-if="options[index]" :curOption="options[index]" :index="index" />
         </div>
     </div>
 </template>
@@ -31,38 +29,39 @@
             ConfigUi
         },
         created() {
-        this.$bus.$on('setOptionItem',(option,idx)=>{
-            this.$set(this.options[idx],'echartOption',option)
-            this.options.forEach((item,index) => {
-                    index===idx?this.$set(this.options[index],'isActive',true):this.$set(this.options[index],'isActive',false);
-            }); 
-            this.index=idx;
+            this.$bus.$on('setOptionItem', (option, idx) => {
+                this.$set(this.options[idx], 'echartOption', option)
+                this.options.forEach((item, index) => {
+                    index === idx ? this.$set(this.options[index], 'isActive', true) : this.$set(this
+                        .options[index], 'isActive', false);
+                });
+                this.index = idx;
             });
-            this.$bus.$on('delItem',(idx)=>{
-                 this.$nextTick().then((res)=>{
-                     this.$delete(this.options,this.index);
-                 })
-        });
+            this.$bus.$on('delItem', (idx) => {
+                this.$nextTick().then((res) => {
+                    this.$delete(this.options, this.index);
+                })
+            });
         },
         data() {
             return {
-                miniTools:config.types,
-                index:0,
-                curOption:undefined,
-                options: [ {
-                        type: 'bar',
-                        id:10001,
-                        x: 180,
-                        y: 300,
-                        isActive:false,
-                        echartOption:undefined
-                    }]
+                miniTools: config.types,
+                index: 0,
+                curOption: undefined,
+                options: [{
+                    type: 'bar',
+                    id: 10001,
+                    x: 180,
+                    y: 300,
+                    isActive: false,
+                    echartOption: undefined
+                }]
             }
         },
         methods: {
             setOption(item, idx) {
-                this.$set(this.options,idx,item);
-                this.index=idx;
+                this.$set(this.options, idx, item);
+                this.index = idx;
             },
             onEnd: function (evt) {
                 if (evt.originalEvent.clientX >= 140) {
@@ -70,38 +69,39 @@
                         type: this.miniTools[evt.oldIndex].value,
                         x: evt.originalEvent.clientX - 100,
                         y: evt.originalEvent.clientY - 100,
-                        id:Math.random(),
-                        echartOption:undefined,
-                        isActive:false,
+                        id: Math.random(),
+                        echartOption: undefined,
+                        isActive: false,
                     });
-                    this.index=this.options.length-1;
+                    this.index = this.options.length - 1;
                 }
             },
         },
     }
 </script>
 
-<style>
+<style lang=scss>
     div.item.sortable-chosen.sortable-ghost {
         cursor: pointer;
         -webkit-user-drag: element;
         user-select: element !important;
     }
-    .rg-option{
+
+    .rg-option {
         position: absolute;
         /* right: -290px; */
-        right:0;
+        right: 0;
         width: 300px;
         background: rgba(0, 0, 0, 0.2);
         height: 100%;
-            overflow: scroll;
+        overflow: scroll;
+
+        &:hover {
+            right: 0;
+        }
     }
-    .rg-option:hover{
-        right: 0;
-    }
-    .ghost {
-        background: red;
-    }
+
+
 
     .wrapper {
         cursor: pointer;
@@ -118,11 +118,6 @@
         position: relative;
     }
 
-    .left-mini:hover {
-        left: 0;
-        cursor: pointer;
-    }
-
     .left-mini {
         width: 140px;
         position: absolute;
@@ -130,11 +125,20 @@
         top: 0;
         height: 100%;
         background: rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            left: 0;
+            cursor: pointer;
+        }
+
+        >.ghost {
+            background: red;
+        }
     }
-    .nonmal{
+    .nonmal {
         height: auto;
     }
-    .close{
+    .close {
         overflow: hidden;
         height: 20px;
     }

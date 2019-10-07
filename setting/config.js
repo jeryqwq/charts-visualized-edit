@@ -1,4 +1,7 @@
 export default {
+    components:[//所有支持的组件类型
+
+    ],
     types: [ //所有支持的图标类型
         {
             name: '折线统计图',
@@ -43,25 +46,36 @@ export default {
         SPLITAREA:'SPLITAREA',
         ARRAYDATA:"ARRAYDATA",
         SHADOWBLUR:'SHADOWBLUR',
+        LINESTYLE:"LINESTYLE",
     },
     optionName: {
         title: {
             name: "title | 标题",
-            support: 'ALL'
+            key:'title'
         },
         legend: {
-            name: "legend | 图例",
-            support: "ALL"
+            name:"legend | 图例",
+            key:"legend"
         },
         grid: {
-            name: 'grid | 坐标网格',
-            support: ['line', 'bar']
+            name: 'grid  | 坐标网格',
+            key:'grid'
         },
         tooltip:{
-            name:'tooltip | 提示框组件'
+            name:'tooltip| 提示框组件',
+            key:'tooltip'
         },
         xAxis:{
-            name:'xAxis | X轴'
+            name:'xAxis  | X轴',
+            key:'xAxis'
         },
+        yAxis:{
+            name:'yAxis  | Y轴',
+            key:'yAxis'
+        },
+        series:{
+            name:'series | 系列列表',
+            key:'series'
+        }
     }
 }

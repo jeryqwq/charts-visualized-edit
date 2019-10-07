@@ -1,8 +1,8 @@
 const {InputTypes} =require ('./../config').default;
 export default{
-    xAxis:{
+    yAxis:{
     show: InputTypes.BOOLEAN,
-    name: InputTypes.STRING,
+    name:InputTypes.STRING,
     position: InputTypes.ARRAYDATA,
     offset: InputTypes.NUMBER,
     type: InputTypes.SELECT,
@@ -25,6 +25,5 @@ export default{
         lineStyle:InputTypes.LINESTYLE
     },
     splitArea:InputTypes.SPLITAREA,
-    data : InputTypes.ARRAYDATA,
     }
 }

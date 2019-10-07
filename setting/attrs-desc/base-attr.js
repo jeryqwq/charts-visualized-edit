@@ -27,8 +27,10 @@ export default {
         borderColor: '边框颜色',
         borderWidth:"边框线宽",
         borderRadius: "圆角半径",
+        shadowBlur:'阴影样式',
         shadowColor:'阴影颜色',//生成组件渲染支持渐变等多种颜色状态todo
         shadowOffsetX: "水平偏移",
         shadowOffsetY: '垂直偏移',
+        pageTextStyle:'图例页信息的文字样式'
     }
 }

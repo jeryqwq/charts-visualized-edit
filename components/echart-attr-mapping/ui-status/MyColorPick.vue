@@ -28,7 +28,6 @@ export default {
     },
     watch: {
         'value'(val){
-            console.log(val)
             this.pcolor=val;
         },
         'pcolor'(val){

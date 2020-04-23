@@ -2,6 +2,9 @@
 
 ## Project setup
 
+## 不美观，仅供学习参考使用
+
+<img src="./demo.png"/>
 ```
 yarn install
 ```

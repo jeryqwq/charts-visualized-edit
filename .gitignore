@@ -1,9 +1,6 @@
 .DS_Store
-/node_modules
+node_modules
 /dist
-
-/tests/e2e/videos/
-/tests/e2e/screenshots/
 
 # local env files
 .env.local
@@ -21,10 +18,4 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw*
-*.gz*
-# IDEA directories and files
-.idea/
-*/*.iml
-*.iml
-*.gz
+*.sw?

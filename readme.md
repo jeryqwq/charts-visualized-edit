@@ -39,6 +39,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## 一键导出代码和配置 后续增加导出.vue 格式文件和配置
 
-## 一键生成 html 静态网页 需要后端 node 支持
+## 一键生成 html 静态网页 需要后端 node 支持 
 
 ## 更多功能想象中。。。
